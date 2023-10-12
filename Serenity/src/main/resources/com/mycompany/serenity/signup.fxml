@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.Signup">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="63.0" layoutY="83.0" stylesheets="@styles.css" text="Serenity" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="50.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="98.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@serenity_logo_unfixed-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label alignment="TOP_CENTER" layoutX="59.0" layoutY="265.0" stylesheets="@styles.css" text="Find Your Inner Balance" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" layoutX="406.0" layoutY="64.0" stylesheets="@styles.css" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="31.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" layoutX="287.0" layoutY="442.0" stylesheets="@styles.css" text="Already a member? " textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name" layoutX="362.0" layoutY="185.0" prefHeight="25.0" prefWidth="202.0" promptText="John Doe" />
+      <TextField fx:id="email" layoutX="362.0" layoutY="240.0" prefHeight="25.0" prefWidth="202.0" promptText="example@gmail.com" />
+      <TextField fx:id="confirmPass" layoutX="362.0" layoutY="355.0" prefHeight="25.0" prefWidth="202.0" promptText="confirm password" />
+      <TextField fx:id="password" layoutX="362.0" layoutY="300.0" prefHeight="25.0" prefWidth="202.0" promptText="password" />
+      <Label alignment="TOP_CENTER" layoutX="362.0" layoutY="162.0" stylesheets="@styles.css" text="Name" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" layoutX="362.0" layoutY="277.0" stylesheets="@styles.css" text="Password" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" layoutX="362.0" layoutY="217.0" stylesheets="@styles.css" text="E-mail" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_CENTER" layoutX="362.0" layoutY="332.0" stylesheets="@styles.css" text="Confirm password" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="clickToLogin" layoutX="431.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleClickToLogin" text="Click here to login" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Bold" size="16.0" />
+         </font>
+         <styleClass>
+            <String fx:value="button-as-text" />
+            <String fx:value="underline-text" />
+         </styleClass>
+      </Button>
+      <Button fx:id="finishSignup" layoutX="350.0" layoutY="386.0" mnemonicParsing="false" onAction="#handleFinishSignup" text="Signup" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Bold" size="16.0" />
+         </font>
+         <styleClass>
+            <String fx:value="button-as-text" />
+            <String fx:value="button-styled" />
+         </styleClass>
+      </Button>
+      <Label fx:id="requiredMessage" alignment="TOP_CENTER" layoutX="362.0" layoutY="125.0" opacity="0.0" stylesheets="@styles.css" text="All fields are required!" textFill="#c62727">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

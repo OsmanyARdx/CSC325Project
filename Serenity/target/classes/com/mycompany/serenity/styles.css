@@ -1,0 +1,24 @@
+.welcome-anchor{
+    -fx-background-color: linear-gradient(to bottom, #191970, #0d47a1);
+}
+
+.label {
+    -fx-font-family: "Segoe UI", sans-serif; /* A clean and modern sans-serif font */
+    -fx-font-weight: bold;
+    -fx-color: #f2f2f2; /* Off-white color for a soothing effect */
+}
+
+.underline-text{
+    -fx-underline: true;
+}
+.button-as-text {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.button-styled:hover {
+    -fx-background-color: rgba(192, 192, 192, 0.5); /* Super opaque grey background color */
+    -fx-border-color: rgba(192, 192, 192, 0.5); /* Super opaque grey border color */
+    -fx-border-width: 1px; /* Border width (adjust as needed) */
+    -fx-text-underline: true; /* Underline text on hover */
+    -fx-text-fill: #FFFFFF; /* White text color for hover state */
+}
