@@ -1,11 +1,15 @@
 package com.mycompany.serenity;
 
+import com.google.auth.oauth2.GoogleCredentials;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
@@ -17,6 +21,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         scene = new Scene(loadFXML("signup"), 640, 480);
         stage.setScene(scene);
         String css = getClass().getResource("styles.css").toExternalForm();

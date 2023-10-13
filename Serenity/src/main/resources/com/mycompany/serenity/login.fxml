@@ -57,13 +57,14 @@
             <String fx:value="underline-text" />
          </styleClass>
       </Button>
-      <Button fx:id="login" layoutX="349.0" layoutY="318.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" textFill="WHITE">
+      <Button fx:id="login" layoutX="360.0" layoutY="318.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>
          <styleClass>
             <String fx:value="button-as-text" />
             <String fx:value="button-styled" />
+            <String fx:value="button" />
          </styleClass>
       </Button>
    </children>

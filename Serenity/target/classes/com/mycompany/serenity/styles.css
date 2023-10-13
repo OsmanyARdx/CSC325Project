@@ -15,10 +15,16 @@
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
-.button-styled:hover {
-    -fx-background-color: rgba(192, 192, 192, 0.5); /* Super opaque grey background color */
-    -fx-border-color: rgba(192, 192, 192, 0.5); /* Super opaque grey border color */
+.button-styled {
+    -fx-background-color: rgba(128, 128, 128, 0.5); /* Darker grey background color */
+    -fx-border-color: rgba(128, 128, 128, 0.5); /* Darker grey border color */
     -fx-border-width: 1px; /* Border width (adjust as needed) */
+    -fx-text-fill: #FFFFFF; /* White text color */
     -fx-text-underline: true; /* Underline text on hover */
-    -fx-text-fill: #FFFFFF; /* White text color for hover state */
 }
+
+.button-styled:hover {
+    -fx-background-color: rgba(192, 192, 192, 0.5); /* Lighter grey background color on hover */
+    -fx-border-color: rgba(192, 192, 192, 0.5); /* Lighter grey border color on hover */
+}
+
