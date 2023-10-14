@@ -1,4 +1,5 @@
 package com.mycompany.serenity;
 
-public class LandingPage {
+public class
+LandingPage {
 }
