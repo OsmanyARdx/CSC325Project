@@ -69,13 +69,14 @@
             <String fx:value="underline-text" />
          </styleClass>
       </Button>
-      <Button fx:id="finishSignup" layoutX="350.0" layoutY="386.0" mnemonicParsing="false" onAction="#handleFinishSignup" text="Signup" textFill="WHITE">
+      <Button fx:id="finishSignup" layoutX="362.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleFinishSignup" text="Signup" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>
          <styleClass>
             <String fx:value="button-as-text" />
             <String fx:value="button-styled" />
+            <String fx:value="button" />
          </styleClass>
       </Button>
       <Label fx:id="requiredMessage" alignment="TOP_CENTER" layoutX="362.0" layoutY="125.0" opacity="0.0" stylesheets="@styles.css" text="All fields are required!" textFill="#c62727">
