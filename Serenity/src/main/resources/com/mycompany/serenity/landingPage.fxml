@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Point3D?>
 <?import javafx.scene.control.Button?>
@@ -14,85 +22,86 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="home-soft-Pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.LandingPage">
    <children>
-      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
-         <tabs>
-            <Tab text="Home">
-               <content>
-                  <VBox fx:id="homeVBox" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="367.0" stroke="BLACK" strokeType="INSIDE" width="1080.0" />
+      <ScrollPane hbarPolicy="NEVER" hmax="100.0" prefHeight="720.0" prefWidth="1080.0" vbarPolicy="ALWAYS">
+         <content>
+            <VBox fx:id="homeVBox" alignment="TOP_CENTER" prefHeight="720.0" prefWidth="1078.0" styleClass="home-Background-Pane" stylesheets="@styles.css">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="88.0" prefWidth="600.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="88.0" prefWidth="600.0">
+                        <ImageView fitHeight="125.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
+                           <image>
+                              <Image url="@serenity_logo_unfixed-removebg-preview.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="50.0" top="50.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label id="titleText" alignment="CENTER" text="Find Your Inner Peace" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" top="50.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" styleClass="button-styled" text="Register/Login" translateY="-40.0">
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Label id="secondText" text="There's always a place for you, let's find it" textFill="WHITE">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="TOP_CENTER" prefHeight="304.0" prefWidth="1048.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <ImageView fitHeight="125.0" fitWidth="112.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
+                              <ImageView fitHeight="101.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@serenity_logo_unfixed-removebg-preview.png" />
+                                    <Image url="@smiley.jpg" />
                                  </image>
                               </ImageView>
-                              <Label id="titleText" alignment="CENTER" text="Find Your Inner Peace" textFill="WHITE">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                              <Button alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" styleClass="button-styled" text="Register/Login" translateY="-40.0" />
+                              <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@blackwomansmiling.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@obama.jpeg" />
+                                 </image>
+                              </ImageView>
                            </children>
-                        </HBox>
-                        <Label id="secondText" text="There's always a place for you, let's find it" textFill="WHITE">
-                           <font>
-                              <Font size="7.0" />
-                           </font>
-                        </Label>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
-                           <children>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <ImageView fitHeight="101.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@smiley.jpg" />
-                                       </image></ImageView>
-                                    <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@blackwomansmiling.jpg" />
-                                       </image></ImageView>
-                                    <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@obama.jpeg" />
-                                       </image></ImageView>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin></HBox>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="399.0" text="Take care of your mind to take care of you body" />
-                                 </children>
-                              </HBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
-                        </VBox>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="399.0" text="Take care of your mind to take care of you body" />
+                           </children>
+                        </HBox>
                      </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="30.0" top="20.0" />
+                     </VBox.margin>
                   </VBox>
-               </content>
-            </Tab>
-            <Tab text="Self Care">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab text="Contacts">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-         </tabs>
-      </TabPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
-   <rotationAxis>
-      <Point3D />
-   </rotationAxis>
-</Pane>
+</AnchorPane>
