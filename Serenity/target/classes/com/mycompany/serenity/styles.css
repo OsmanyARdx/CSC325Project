@@ -1,5 +1,5 @@
 .welcome-anchor{
-    -fx-background-color: linear-gradient(to bottom, #191970, #0d47a1);
+    -fx-background-color: linear-gradient(to bottom, #0EBFE9, #E0EEEE);
 }
 
 .label {
@@ -28,3 +28,27 @@
     -fx-border-color: rgba(192, 192, 192, 0.5); /* Lighter grey border color on hover */
 }
 
+.soft-edge-vbox {
+    -fx-background-color: "white";
+    -fx-background-radius: 10;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+}
+
+.home-soft-Pane{
+    -fx-background-color: linear-gradient(to bottom, #0EBFE9, #E0EEEE);
+    -fx-background-radius: 10;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
+}
+
+#titleText {
+    -fx-font-size: 35;
+    -fx-font-weight: bold;
+}
+
+#secondText{
+    -fx-font-size: 20;
+}
