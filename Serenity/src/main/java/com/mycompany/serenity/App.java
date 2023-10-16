@@ -22,9 +22,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        scene = new Scene(loadFXML("signup"), 640, 480);
+        scene = new Scene(loadFXML("LandingPage"), 640, 480);
         stage.setScene(scene);
         String css = getClass().getResource("styles.css").toExternalForm();
+        scene.getStylesheets().add(css);
         scene.getStylesheets().add(css);
         stage.show();
     }
