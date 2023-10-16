@@ -45,10 +45,10 @@
 }
 
 #titleText {
-    -fx-font-size: 20;
+    -fx-font-size: 35;
     -fx-font-weight: bold;
 }
 
 #secondText{
-    -fx-font-size: 8;
+    -fx-font-size: 20;
 }
