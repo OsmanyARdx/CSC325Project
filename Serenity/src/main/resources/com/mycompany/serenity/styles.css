@@ -36,12 +36,11 @@
     -fx-padding: 10;
 }
 
-.home-soft-Pane{
-    -fx-background-color: linear-gradient(to bottom, #0EBFE9, #E0EEEE);
-    -fx-background-radius: 10;
-    -fx-border-width: 2;
-    -fx-border-radius: 10;
-    -fx-padding: 10;
+.home-Background-Pane{
+    -fx-background-image: url("Untitled-1.png");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
 
 #titleText {
