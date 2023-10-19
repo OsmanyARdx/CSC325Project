@@ -11,10 +11,16 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.UserRecord;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 public class Signup {
@@ -36,14 +42,16 @@ public class Signup {
     private Label requiredMessage;
 
     @FXML
-    public void handleClickToLogin(){
-        try{
-            App.setRoot("login");
-
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
+    public void handleClickToLogin(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch(IOException e){
+            System.out.println(e);
         }
-
     }
     @FXML
     public void handleFinishSignup() {
@@ -91,14 +99,12 @@ public class Signup {
 
     public void openConn(){
         try {
-            FileInputStream serviceAccount = new FileInputStream("serviceAccountKey.json");
 
             FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setDatabaseUrl("https://serenity-971f6-default-rtdb.firebaseio.com")
                     .build();
             FirebaseApp.initializeApp(options);
-        } catch (IOException e){
+        } catch (IllegalStateException e){
             System.out.println("Firebase initialization failed: " + e.getMessage());
         }
     }

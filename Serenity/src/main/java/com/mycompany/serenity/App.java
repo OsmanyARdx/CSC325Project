@@ -17,12 +17,12 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
 
-        scene = new Scene(loadFXML("LandingPage"), 640, 480);
+        scene = new Scene(loadFXML("LandingPage"), 1080, 720);
         stage.setScene(scene);
         String css = getClass().getResource("styles.css").toExternalForm();
         scene.getStylesheets().add(css);
@@ -44,4 +44,7 @@ public class App extends Application {
         launch();
     }
 
+    public static Stage getPrimaryStage(){
+        return (Stage) scene.getWindow();
+    }
 }
