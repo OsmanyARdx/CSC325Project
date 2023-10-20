@@ -1,8 +1,10 @@
 module com.mycompany.serenity {
     requires javafx.controls;
     requires javafx.fxml;
-    requires firebase.admin;
-    requires com.google.auth.oauth2;
+    requires org.mongodb.driver.sync.client;
+    requires org.mongodb.bson;
+    requires bcrypt;
+    requires org.mongodb.driver.core;
 
     opens com.mycompany.serenity to javafx.fxml;
     exports com.mycompany.serenity;

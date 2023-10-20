@@ -16,27 +16,26 @@
             <Font name="SansSerif Regular" size="50.0" />
          </font>
       </Label>
-      <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="98.0" layoutY="144.0" pickOnBounds="true"
-                 preserveRatio="true">
-         <Image url="@serenity_logo_unfixed-removebg-preview.png"/>
+      <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="98.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@serenity_logo_unfixed-removebg-preview.png" />
       </ImageView>
       <Label alignment="TOP_CENTER" layoutX="59.0" layoutY="265.0" stylesheets="@styles.css" text="Find Your Inner Balance" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="18.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="406.0" layoutY="95.0" stylesheets="@styles.css" text="Login" textFill="WHITE">
+      <Label alignment="TOP_CENTER" layoutX="404.0" layoutY="76.0" stylesheets="@styles.css" text="Login" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="31.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="304.0" layoutY="426.0" stylesheets="@styles.css" text="Not a member?" textFill="WHITE">
+      <Label alignment="TOP_CENTER" layoutX="304.0" layoutY="426.0" stylesheets="@styles.css" text="Not a member?" textFill="#837676">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="362.0" layoutY="185.0" prefHeight="25.0" prefWidth="202.0" promptText="example@gmail.com" />
-      <TextField layoutX="362.0" layoutY="276.0" prefHeight="25.0" prefWidth="202.0" promptText="password" />
+      <TextField fx:id="email" layoutX="362.0" layoutY="185.0" prefHeight="25.0" prefWidth="202.0" promptText="example@gmail.com" />
+      <TextField fx:id="password" accessibleRole="PASSWORD_FIELD" layoutX="362.0" layoutY="276.0" prefHeight="25.0" prefWidth="202.0" promptText="password" />
       <Label alignment="TOP_CENTER" layoutX="362.0" layoutY="247.0" stylesheets="@styles.css" text="Password" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="14.0" />
@@ -47,7 +46,7 @@
             <Font name="SansSerif Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="clickToSignup" layoutX="414.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleClickToSignup" text="Click here to sign up" textFill="WHITE">
+      <Button layoutX="414.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleClickToSignup" text="Click here to sign up" textFill="#837676">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>
@@ -56,7 +55,7 @@
             <String fx:value="underline-text" />
          </styleClass>
       </Button>
-      <Button fx:id="login" layoutX="360.0" layoutY="318.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" textFill="WHITE">
+      <Button layoutX="360.0" layoutY="318.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" textFill="WHITE">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>
@@ -66,5 +65,10 @@
             <String fx:value="button" />
          </styleClass>
       </Button>
+      <Label fx:id="requiredMessage" layoutX="362.0" layoutY="127.0" opacity="0.0" text="Label" textFill="#c61212">
+         <font>
+            <Font name="SansSerif Regular" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

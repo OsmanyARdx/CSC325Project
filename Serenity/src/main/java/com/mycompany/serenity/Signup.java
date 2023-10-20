@@ -1,16 +1,14 @@
 package com.mycompany.serenity;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.UserRecord;
+import at.favre.lib.crypto.bcrypt.BCrypt;
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.ServerApi;
+import com.mongodb.ServerApiVersion;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +19,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.bson.Document;
+
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class Signup {
@@ -54,7 +57,7 @@ public class Signup {
         }
     }
     @FXML
-    public void handleFinishSignup() {
+    public void handleFinishSignup(ActionEvent event) {
         String userName = name.getText();
         String userEmail = email.getText();
         String pass = password.getText();
@@ -71,14 +74,9 @@ public class Signup {
             requiredMessage.setOpacity(1);
         }
         if (pass.equals(confirm) && allFieldsFull() && isValidEmail(userEmail)) {
-            try {
-                openConn();
-                registerUser(userName, userEmail, pass);
-                App.setRoot("login");
+            addUser(userName, userEmail, pass);
+            handleClickToLogin(event);
 
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
         }
     }
     public Boolean isValidEmail(String email){
@@ -90,36 +88,38 @@ public class Signup {
         return matcher.matches();
     }
     public Boolean allFieldsFull(){
-        if(name.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty() || confirmPass.getText().isEmpty()){
-            return false;
-        } else{
-            return true;
+        return !name.getText().isEmpty() && !email.getText().isEmpty() && !password.getText().isEmpty() && !confirmPass.getText().isEmpty();
+    }
+
+    public void addUser(String name, String email, String password){
+
+        MongoCollection<Document> users = openConn();
+
+        BCrypt.Hasher hasher = BCrypt.withDefaults();
+        String hashedPassword = hasher.hashToString(12, password.toCharArray());
+
+        Document userDoc = new Document("_id", email)
+                .append("name", name)
+                .append("password", hashedPassword);
+
+        users.insertOne(userDoc);
+    }
+    public MongoCollection<Document> openConn() {
+        String connectionString = "mongodb+srv://Serenity:Serenity123@serenity.u9qpr7n.mongodb.net/?retryWrites=true&w=majority";
+
+        ServerApi serverApi = ServerApi.builder()
+                .version(ServerApiVersion.V1)
+                .build();
+        MongoClientSettings settings = MongoClientSettings.builder()
+                .applyConnectionString(new ConnectionString(connectionString))
+                .serverApi(serverApi)
+                .build();
+
+        try (MongoClient mongoClient = MongoClients.create(settings)) {
+            MongoDatabase serenityDB = mongoClient.getDatabase("Serenity");
+            return serenityDB.getCollection("serenity-users");
         }
     }
 
-    public void openConn(){
-        try {
-
-            FirebaseOptions options = FirebaseOptions.builder()
-                    .setDatabaseUrl("https://serenity-971f6-default-rtdb.firebaseio.com")
-                    .build();
-            FirebaseApp.initializeApp(options);
-        } catch (IllegalStateException e){
-            System.out.println("Firebase initialization failed: " + e.getMessage());
-        }
-    }
-    public void registerUser(String name, String email, String password){
-        try{
-            UserRecord.CreateRequest request = new UserRecord.CreateRequest()
-                    .setEmail(email)
-                    .setPassword(password)
-                    .setDisplayName(name);
-
-            UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
-            System.out.println("Successfully created new user: " + userRecord.getUid());
-        } catch (FirebaseAuthException e){
-            System.out.println("Error creating new user: " + e.getMessage());
-        }
-    }
 
 }
