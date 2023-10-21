@@ -36,7 +36,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="818.0" layoutY="77.0" mnemonicParsing="false" styleClass="button-as-text" stylesheets="@styles.css" text="Login">
+      <Button layoutX="818.0" layoutY="77.0" mnemonicParsing="false" onAction="#handleToLogin" styleClass="button-as-text" stylesheets="@styles.css" text="Login">
          <font>
             <Font name="SansSerif Bold" size="20.0" />
          </font>
@@ -44,7 +44,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="901.0" layoutY="75.0" mnemonicParsing="false" styleClass="signup-button" stylesheets="@styles.css" text="Signup">
+      <Button layoutX="901.0" layoutY="75.0" mnemonicParsing="false" onAction="#handleToSignup" styleClass="signup-button" stylesheets="@styles.css" text="Signup">
          <font>
             <Font />
          </font>
