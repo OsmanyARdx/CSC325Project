@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="welcome-anchor" stylesheets="@styles.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mycompany.serenity.SelfAssessment">
+    <ImageView fitHeight="125.0" fitWidth="112.0" layoutX="26.0" layoutY="4.0" pickOnBounds="true"
+               preserveRatio="true" translateX="-20.0">
+        <Image url="@serenity_logo_unfixed-removebg-preview.png"/>
+    </ImageView>
+    <VBox layoutX="155.0" layoutY="4.0" prefHeight="394.0" prefWidth="433.0" styleClass="soft-edge-vbox"
+          stylesheets="@styles.css">
+        <Label fx:id="mood_today" text="How are you feeling (mood)?"/>
+
+        <ChoiceBox fx:id="mood_todayBOX" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Happy"/>
+                    <String fx:value="Sad"/>
+                    <String fx:value="Excited"/>
+                    <String fx:value="Angry"/>
+                    <String fx:value="Calm"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <Label fx:id="energy_level" prefHeight="24.0" prefWidth="267.0"
+               text="What best describes your energy level today?"/>
+        <ChoiceBox fx:id="energy_levelBOX" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Energetic"/>
+                    <String fx:value="Moderately active"/>
+                    <String fx:value="Low energy"/>
+                    <String fx:value="Completely drained"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+
+        <Label fx:id="sleep_quality" text="How well did you sleep last night?"/>
+        <ChoiceBox fx:id="sleep_qualityBOX" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Very well"/>
+                    <String fx:value="Somewhat well"/>
+                    <String fx:value="Not very well"/>
+                    <String fx:value="Terribly"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+
+        <Label fx:id="stressors_today"
+               text="Have you experienced any significant life stressors or triggers today?"/>
+        <ChoiceBox fx:id="stressors_todayBOX" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Yes"/>
+                    <String fx:value="No"/>
+                    <String fx:value="Not sure"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+
+        <Label fx:id="positive_events" text="Have you experienced any notable positive events today?"/>
+        <ChoiceBox fx:id="positive_eventsBOX" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Yes"/>
+                    <String fx:value="No"/>
+                    <String fx:value="Not sure"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <Label fx:id="self_care" text="Did you practice any relaxation or self-care techniques today?"/>
+        <ChoiceBox fx:id="self_careBOX" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Yes"/>
+                    <String fx:value="No"/>
+                    <String fx:value="Planning to later"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+
+        <Label fx:id="outlook" text="What is your outlook for the rest of the day?"/>
+        <ChoiceBox fx:id="outlookBOX" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Optimistic"/>
+                    <String fx:value="Neutral"/>
+                    <String fx:value="Pessimistic"/>
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+    </VBox>
+</AnchorPane>
