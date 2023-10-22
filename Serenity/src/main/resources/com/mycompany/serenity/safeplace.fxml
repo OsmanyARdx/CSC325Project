@@ -18,7 +18,7 @@
     <children>
         <ImageView fitHeight="125.0" fitWidth="112.0" layoutX="34.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
             <image>
-                <Image url="@serenity_logo_unfixed-removebg-preview.png" />
+                <Image url="@images/logo.png" />
             </image>
         </ImageView>
         <Label id="titleText" alignment="CENTER" layoutX="126.0" layoutY="52.0" text="Find Your Inner Peace" textFill="WHITE">
