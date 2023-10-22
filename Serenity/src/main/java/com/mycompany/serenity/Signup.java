@@ -62,22 +62,32 @@ public class Signup {
         String userEmail = email.getText();
         String pass = password.getText();
         String confirm = confirmPass.getText();
+
+
+        //User didn't fill out all the fields
         if(!allFieldsFull()){
-            requiredMessage.setOpacity(1);
+            setErrorMessage("All fields are required!");
         }
+        //User filled out all the fields, but the email format isn't correct ex: serenity@gmail.com
         if (!isValidEmail(userEmail) && allFieldsFull()){
-            requiredMessage.setText("Please enter valid email format!");
-            requiredMessage.setOpacity(1);
+            setErrorMessage("Please enter valid email format!");
         }
+
+        //User's passwords don't match
         if (!pass.equals(confirm) && allFieldsFull()){
-            requiredMessage.setText("Passwords must match!");
-            requiredMessage.setOpacity(1);
+            setErrorMessage("Passwords must match!");
         }
+        //All values pass check conditions and user's sign up info is sent to DB
         if (pass.equals(confirm) && allFieldsFull() && isValidEmail(userEmail)) {
             addUser(userName, userEmail, pass);
             handleClickToLogin(event);
 
         }
+    }
+
+    private void setErrorMessage(String message){
+        requiredMessage.setText(message);
+        requiredMessage.setOpacity(1);
     }
     public Boolean isValidEmail(String email){
         String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +

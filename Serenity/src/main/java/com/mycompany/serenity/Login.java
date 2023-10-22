@@ -22,10 +22,7 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.io.IOException;
-import java.util.concurrent.Future;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,19 +41,16 @@ public class Login {
 
     @FXML
     public void handleLogin(ActionEvent event) {
-
         String userEmail = email.getText();
         String pass = password.getText();
 
         if (!allFieldsFull()) {
-            requiredMessage.setText("All fields are required!");
-            requiredMessage.setOpacity(1);
+            setErrorMessage("All fields are required!");
             return;
         }
 
         if (!isValidEmailFormat(userEmail)) {
-            requiredMessage.setText("Please enter a valid email format!");
-            requiredMessage.setOpacity(1);
+            setErrorMessage("Please enter a valid email format!");
             return;
         }
 
@@ -65,23 +59,27 @@ public class Login {
 
         try {
             if (!emailExistsFuture.get()) {
-                requiredMessage.setText("Email not found! Please sign up.");
-                requiredMessage.setOpacity(1);
+                setErrorMessage("Email not found! Please sign up.");
             } else {
                 // Asynchronously check if the password matches
                 Future<Boolean> passwordMatchFuture = executor.submit(() -> passwordMatch(userEmail, pass));
 
                 if (!passwordMatchFuture.get()) {
-                    requiredMessage.setText("Invalid password, please try again.");
-                    requiredMessage.setOpacity(1);
+                    setErrorMessage("Invalid password, please try again.");
                 } else {
                     switchToLandingPage(event);
                     shutdownExecutor();
                 }
             }
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            setErrorMessage("An error occurred. Please try again later.");
         }
+    }
+
+    private void setErrorMessage(String message) {
+        requiredMessage.setText(message);
+        requiredMessage.setOpacity(1);
     }
 
     @FXML

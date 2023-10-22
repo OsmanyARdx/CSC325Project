@@ -31,15 +31,15 @@
             <Font name="SansSerif Regular" size="31.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="287.0" layoutY="442.0" stylesheets="@styles.css" text="Already a member? " textFill="WHITE">
+      <Label alignment="TOP_CENTER" layoutX="287.0" layoutY="442.0" stylesheets="@styles.css" text="Already a member? " textFill="#837676">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Label>
       <TextField fx:id="name" layoutX="362.0" layoutY="185.0" prefHeight="25.0" prefWidth="202.0" promptText="John Doe" />
       <TextField fx:id="email" layoutX="362.0" layoutY="240.0" prefHeight="25.0" prefWidth="202.0" promptText="example@gmail.com" />
-      <TextField fx:id="confirmPass" layoutX="362.0" layoutY="355.0" prefHeight="25.0" prefWidth="202.0" promptText="confirm password" />
-      <TextField fx:id="password" layoutX="362.0" layoutY="300.0" prefHeight="25.0" prefWidth="202.0" promptText="password" />
+      <TextField fx:id="confirmPass" accessibleRole="PASSWORD_FIELD" layoutX="362.0" layoutY="355.0" prefHeight="25.0" prefWidth="202.0" promptText="confirm password" />
+      <TextField fx:id="password" accessibleRole="PASSWORD_FIELD" layoutX="362.0" layoutY="300.0" prefHeight="25.0" prefWidth="202.0" promptText="password" />
       <Label alignment="TOP_CENTER" layoutX="362.0" layoutY="162.0" stylesheets="@styles.css" text="Name" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="14.0" />
@@ -60,7 +60,7 @@
             <Font name="SansSerif Regular" size="14.0" />
          </font>
       </Label>
-      <Button fx:id="clickToLogin" layoutX="431.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleClickToLogin" text="Click here to login" textFill="WHITE">
+      <Button fx:id="clickToLogin" layoutX="431.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleClickToLogin" text="Click here to login" textFill="#837676">
          <font>
             <Font name="SansSerif Bold" size="16.0" />
          </font>
