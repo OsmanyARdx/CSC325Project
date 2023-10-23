@@ -63,7 +63,6 @@ public class Signup {
         String pass = password.getText();
         String confirm = confirmPass.getText();
 
-
         //User didn't fill out all the fields
         if(!allFieldsFull()){
             setErrorMessage("All fields are required!");
