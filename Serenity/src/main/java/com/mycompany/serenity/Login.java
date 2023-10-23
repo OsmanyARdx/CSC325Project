@@ -67,7 +67,7 @@ public class Login {
                 if (!passwordMatchFuture.get()) {
                     setErrorMessage("Invalid password, please try again.");
                 } else {
-                    switchToLandingPage(event);
+                    switchToHome(getName(userEmail), event);
                     shutdownExecutor();
                 }
             }
@@ -95,9 +95,12 @@ public class Login {
         }
     }
 
-    public void switchToLandingPage(ActionEvent event) {
+    public void switchToHome(String userName, ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("userHome.fxml"));
+            Parent root = loader.load();
+            UserHome userHome = loader.getController();
+            userHome.initialize(userName);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -141,6 +144,17 @@ public class Login {
                 return result.verified;
             }
             return false;
+        }
+    }
+    public String getName(String email) {
+        try (MongoClient mongoClient = openConn()) {
+            MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
+            Bson filter = Filters.eq("_id", email);
+            Document userDoc = users.find(filter).first();
+
+
+            return userDoc.getString("name");
+
         }
     }
 
