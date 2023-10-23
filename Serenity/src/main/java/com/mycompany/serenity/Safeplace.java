@@ -15,6 +15,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+//Vanilla swirl
 public class Safeplace implements Initializable {
 
     @FXML
