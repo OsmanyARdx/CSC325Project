@@ -8,7 +8,6 @@ import com.mongodb.ServerApiVersion;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,7 +46,7 @@ public class Signup {
     @FXML
     public void handleClickToLogin(ActionEvent event){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -102,20 +101,21 @@ public class Signup {
     }
 
     public void addUser(String name, String email, String password){
+        try (MongoClient mongoClient = openConn()) {
+            MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
 
-        MongoCollection<Document> users = openConn();
+            BCrypt.Hasher hasher = BCrypt.withDefaults();
+            String hashedPassword = hasher.hashToString(12, password.toCharArray());
 
-        BCrypt.Hasher hasher = BCrypt.withDefaults();
-        String hashedPassword = hasher.hashToString(12, password.toCharArray());
+            Document userDoc = new Document("_id", email)
+                    .append("name", name)
+                    .append("password", hashedPassword);
 
-        Document userDoc = new Document("_id", email)
-                .append("name", name)
-                .append("password", hashedPassword);
-
-        users.insertOne(userDoc);
+            users.insertOne(userDoc);
+        }
     }
-    public MongoCollection<Document> openConn() {
-        String connectionString = "mongodb+srv://Serenity:Serenity123@serenity.u9qpr7n.mongodb.net/?retryWrites=true&w=majority";
+    public MongoClient openConn() {
+        String connectionString = "mongodb+srv://NicholasG:Serenity123@cluster0.ddkjcfa.mongodb.net/?retryWrites=true&w=majority";
 
         ServerApi serverApi = ServerApi.builder()
                 .version(ServerApiVersion.V1)
@@ -125,10 +125,7 @@ public class Signup {
                 .serverApi(serverApi)
                 .build();
 
-        try (MongoClient mongoClient = MongoClients.create(settings)) {
-            MongoDatabase serenityDB = mongoClient.getDatabase("Serenity");
-            return serenityDB.getCollection("serenity-users");
-        }
+        return MongoClients.create(settings);
     }
 
 

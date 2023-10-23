@@ -85,7 +85,7 @@ public class Login {
     @FXML
     public void handleClickToSignup(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("signup.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Signup.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -97,7 +97,7 @@ public class Login {
 
     public void switchToLandingPage(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("landingPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -122,7 +122,7 @@ public class Login {
 
     public boolean doesEmailExist(String email) {
         try (MongoClient mongoClient = openConn()) {
-            MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users");
+            MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
             Bson filter = Filters.eq("_id", email);
             Document existingUser = users.find(filter).first();
             return existingUser != null;
@@ -131,7 +131,7 @@ public class Login {
 
     public boolean passwordMatch(String email, String password) {
         try (MongoClient mongoClient = openConn()) {
-            MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users");
+            MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
             Bson filter = Filters.eq("_id", email);
             Document userDoc = users.find(filter).first();
 
@@ -145,7 +145,7 @@ public class Login {
     }
 
     public MongoClient openConn() {
-        String connectionString = "mongodb+srv://Serenity:Serenity123@serenity.u9qpr7n.mongodb.net/?retryWrites=true&w=majority";
+        String connectionString = "mongodb+srv://NicholasG:Serenity123@cluster0.ddkjcfa.mongodb.net/?retryWrites=true&w=majority";
 
         ServerApi serverApi = ServerApi.builder()
                 .version(ServerApiVersion.V1)

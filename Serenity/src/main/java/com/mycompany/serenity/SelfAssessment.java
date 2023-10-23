@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +14,7 @@ public class SelfAssessment implements Initializable {
             sleep_qualityBOX, stressors_todayBOX, positive_eventsBOX, self_careBOX, outlookBOX;
 
     @FXML
-    private Label mood_today,energy_level,
-           sleep_quality, stressors_today, positive_events, self_care, outlook;
+    private Label mood_today,energy_level, sleep_quality, stressors_today, positive_events, self_care, outlook;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
