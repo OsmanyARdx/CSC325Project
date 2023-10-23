@@ -62,7 +62,5 @@ public class Safeplace implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        // You can initialize the ChoiceBox items here
-        moodChoiceBox.getItems().addAll("Happy", "Sad", "Excited", "Angry", "Calm");
     }
 }
