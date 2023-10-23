@@ -35,22 +35,34 @@ public class Safeplace implements Initializable {
         sb.append(Q2TXTArea.getText().toString() + "\n");
         sb.append(Q3TXTArea.getText().toString() + "\n");
 
-        // Define the path to your desktop
-        String desktopPath = System.getProperty("user.home") + "/Desktop/";
 
         // Create a File object for the destination file on the desktop
-        File diary = new File(desktopPath, "my_diary.txt");
+        File diary = new File("my_diary.txt");
 
-        try (FileWriter writer = new FileWriter(diary)) {
-            // Write the contents of the StringBuilder to the file
-            writer.write(sb.toString());
+        try {
+            //check if diary exists and write to it
+            if (diary.exists()) {
+                try (FileWriter writer = new FileWriter(diary)) {
+                    // Write the contents of the StringBuilder to the file
+                    writer.write(sb.toString());
+                }
+            }
+            //create diary if it doesn't exist and write to it
+            else {
+                diary.createNewFile();
+                try (FileWriter writer = new FileWriter(diary)) {
+                    writer.write(sb.toString());
+                }
+
+            }
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
         }
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources){
         // You can initialize the ChoiceBox items here
         moodChoiceBox.getItems().addAll("Happy", "Sad", "Excited", "Angry", "Calm");
     }
-
 }
