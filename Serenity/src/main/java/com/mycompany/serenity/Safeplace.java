@@ -31,6 +31,7 @@ public class Safeplace implements Initializable {
     @FXML
     public void onClick_bn_diary(ActionEvent e) throws IOException {
         StringBuilder sb = new StringBuilder();
+        sb.append(moodChoiceBox.getItems().toString() + "\n");
         sb.append(Q2TXTArea.getText().toString() + "\n");
         sb.append(Q3TXTArea.getText().toString() + "\n");
 

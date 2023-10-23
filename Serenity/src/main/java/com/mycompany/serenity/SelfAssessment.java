@@ -26,6 +26,5 @@ public class SelfAssessment implements Initializable {
         positive_eventsBOX.getItems().addAll("Yes", "No", "Not sure");
         self_careBOX.getItems().addAll("Yes", "No", "Planning to later");
         outlookBOX.getItems().addAll("Optimistic", "Neutral", "Pessimistic");
-
     }
 }
