@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class Safeplace implements Initializable {
@@ -31,37 +32,31 @@ public class Safeplace implements Initializable {
     @FXML
     public void onClick_bn_diary(ActionEvent e) throws IOException {
         StringBuilder sb = new StringBuilder();
-        sb.append(moodChoiceBox.getItems().toString() + "\n");
-        sb.append(Q2TXTArea.getText().toString() + "\n");
-        sb.append(Q3TXTArea.getText().toString() + "\n");
+        sb.append(moodChoiceBox.getValue() + "\n");
+        sb.append(Q2TXTArea.getText() + "\n");
+        sb.append(Q3TXTArea.getText() + "\n");
 
 
+        String userHome = System.getProperty("user.home");
+
+        // Construct the path to the "Downloads" directory
+        String downloadsPath = userHome + File.separator + "Documents";
         // Create a File object for the destination file on the desktop
-        File diary = new File("my_diary.txt");
+        File diary = new File(downloadsPath, "my_diary.txt - " + LocalDate.now());
 
-        try {
-            //check if diary exists and write to it
-            if (diary.exists()) {
-                try (FileWriter writer = new FileWriter(diary)) {
-                    // Write the contents of the StringBuilder to the file
-                    writer.write(sb.toString());
-                }
-            }
-            //create diary if it doesn't exist and write to it
-            else {
-                diary.createNewFile();
-                try (FileWriter writer = new FileWriter(diary)) {
-                    writer.write(sb.toString());
-                }
-
-            }
+        //check if diary exists and write to it
+        try (FileWriter writer = new FileWriter(diary)) {
+            // Write the contents of the StringBuilder to the file
+            writer.write(sb.toString());
+            writer.close();
+            System.out.println("wrote to diary");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources){
+    public void initialize(URL location, ResourceBundle resources) {
         // You can initialize the ChoiceBox items here
         moodChoiceBox.getItems().addAll("Happy", "Sad", "Excited", "Angry", "Calm");
     }
