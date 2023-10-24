@@ -2,33 +2,22 @@
 
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.Meditation">
-
-    <children>
-        <ImageView fitHeight="125.0" fitWidth="112.0" layoutX="34.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
-            <image>
-                <Image url="@images/logo.png" />
-            </image>
-        </ImageView>
-        <Label id="titleText" alignment="CENTER" layoutX="126.0" layoutY="52.0" text="Find Your Inner Peace" textFill="WHITE">
-            <font>
-                <Font size="24.0" />
-            </font>
-        </Label>
-      <ScrollPane layoutX="24.0" layoutY="143.0" prefHeight="311.0" prefWidth="592.0">
-         <content>
-            <Label text="Label">
-               <graphic>
-                  <Hyperlink text="Hyperlink" />
-               </graphic>
-            </Label>
-         </content>
-      </ScrollPane>
-    </children>
-</AnchorPane>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" text="Testing HyperLink">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="hyperlink" focusTraversable="false" onAction="#hyperlink" text="Hyperlink">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Hyperlink>
+      <WebView fx:id="webView" prefHeight="482.0" prefWidth="742.0" />
+   </children>
+</VBox>
