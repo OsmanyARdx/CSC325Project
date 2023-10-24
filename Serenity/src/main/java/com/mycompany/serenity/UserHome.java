@@ -33,5 +33,48 @@ public class UserHome {
             System.out.println(e);
         }
     }
+
+    //About page method goes here
+    @FXML
+    public void handleClickAbout(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("about.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    //Emergency Contact method page goes here
+    @FXML
+    public void handleClickEmergencyContact(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("EmergencyContact.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    //Meditation page method goes here
+    @FXML
+    public void handleClickMeditation(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("Meditation.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
 }
 
