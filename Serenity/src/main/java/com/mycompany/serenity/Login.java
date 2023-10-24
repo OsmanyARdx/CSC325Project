@@ -9,6 +9,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,11 +23,14 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 
 import java.io.IOException;
-import java.util.concurrent.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Login {
+
+    private MongoCollection<Document> users;
+
 
     @FXML
     private TextField email;
@@ -36,8 +40,22 @@ public class Login {
     @FXML
     private Label requiredMessage;
 
-    private final ThreadPoolExecutor executor = new ThreadPoolExecutor(
-            2, 2, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
+    public void initialize(){
+        String connectionString = "mongodb+srv://NicholasG:Serenity123@cluster0.ddkjcfa.mongodb.net/?retryWrites=true&w=majority";
+
+        ServerApi serverApi = ServerApi.builder()
+                .version(ServerApiVersion.V1)
+                .build();
+        MongoClientSettings settings = MongoClientSettings.builder()
+                .applyConnectionString(new ConnectionString(connectionString))
+                .serverApi(serverApi)
+                .build();
+
+        MongoClient mongoClient = MongoClients.create(settings);
+        users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
+    }
+
+
 
     @FXML
     public void handleLogin(ActionEvent event) {
@@ -54,27 +72,26 @@ public class Login {
             return;
         }
 
-        // Asynchronously check if the email exists
-        Future<Boolean> emailExistsFuture = executor.submit(() -> doesEmailExist(userEmail));
-
-        try {
-            if (!emailExistsFuture.get()) {
-                setErrorMessage("Email not found! Please sign up.");
-            } else {
-                // Asynchronously check if the password matches
-                Future<Boolean> passwordMatchFuture = executor.submit(() -> passwordMatch(userEmail, pass));
-
-                if (!passwordMatchFuture.get()) {
-                    setErrorMessage("Invalid password, please try again.");
-                } else {
-                    switchToHome(getName(userEmail), event);
-                    shutdownExecutor();
-                }
-            }
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println("An error occurred: " + e.getMessage());
-            setErrorMessage("An error occurred. Please try again later.");
-        }
+        doesEmailExist(userEmail)
+                .thenAcceptAsync(emailExists -> {
+                    if (!emailExists) {
+                        Platform.runLater(() -> setErrorMessage("Email not found! Please sign up."));
+                    } else {
+                        passwordMatch(userEmail, pass)
+                                .thenAcceptAsync(passwordMatches -> {
+                                    if (!passwordMatches) {
+                                        Platform.runLater(() -> setErrorMessage("Invalid password, please try again."));
+                                    } else {
+                                        Platform.runLater(() -> switchToHome(getName(userEmail).join(), event));
+                                    }
+                                })
+                                .exceptionally(e -> {
+                                    System.out.println("An error occurred: " + e.getMessage());
+                                    Platform.runLater(() -> setErrorMessage("An error occurred. Please try again later."));
+                                    return null;
+                                });
+                    }
+                });
     }
 
     private void setErrorMessage(String message) {
@@ -123,18 +140,16 @@ public class Login {
         return matcher.matches();
     }
 
-    public boolean doesEmailExist(String email) {
-        try (MongoClient mongoClient = openConn()) {
-            MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
+    public CompletableFuture<Boolean> doesEmailExist(String email) {
+        return CompletableFuture.supplyAsync(() -> {
             Bson filter = Filters.eq("_id", email);
             Document existingUser = users.find(filter).first();
             return existingUser != null;
-        }
+        });
     }
 
-    public boolean passwordMatch(String email, String password) {
-        try (MongoClient mongoClient = openConn()) {
-            MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
+    public CompletableFuture<Boolean> passwordMatch(String email, String password) {
+        return CompletableFuture.supplyAsync(() -> {
             Bson filter = Filters.eq("_id", email);
             Document userDoc = users.find(filter).first();
 
@@ -144,36 +159,17 @@ public class Login {
                 return result.verified;
             }
             return false;
-        }
+        });
     }
-    public String getName(String email) {
-        try (MongoClient mongoClient = openConn()) {
-            MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
+
+    public CompletableFuture<String> getName(String email) {
+        return CompletableFuture.supplyAsync(() -> {
             Bson filter = Filters.eq("_id", email);
             Document userDoc = users.find(filter).first();
 
-
-            return userDoc.getString("name");
-
-        }
+            return userDoc != null ? userDoc.getString("name") : null;
+        });
     }
 
-    public MongoClient openConn() {
-        String connectionString = "mongodb+srv://NicholasG:Serenity123@cluster0.ddkjcfa.mongodb.net/?retryWrites=true&w=majority";
-
-        ServerApi serverApi = ServerApi.builder()
-                .version(ServerApiVersion.V1)
-                .build();
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString(connectionString))
-                .serverApi(serverApi)
-                .build();
-
-        return MongoClients.create(settings);
-    }
-
-    public void shutdownExecutor(){
-        executor.shutdown();
-    }
 }
            
