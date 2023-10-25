@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="514.0" prefWidth="730.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.ReviewPage">
+    <ImageView fitHeight="132.0" fitWidth="162.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/logo.png" />
+    </ImageView>
+    <VBox layoutX="123.0" layoutY="114.0" prefHeight="339.0" prefWidth="564.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
+        <Label fx:id="reviewLabel" text="How satisfied are you with the mental health content and resources on this website?" />
+
+        <ChoiceBox fx:id="reviewBOX" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="2" />
+                    <String fx:value="3" />
+                    <String fx:value="4" />
+                    <String fx:value="5" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+      <Label fx:id="reviewLabel1" text="Have you found the information on this website helpful in understanding mental health topics?" />
+      <ChoiceBox fx:id="reviewBOX1" prefWidth="150.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Yes" />
+               <String fx:value="No" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <Label text="Did you learn something new or gain insights into managing your mental health?" />
+      <TextArea prefHeight="61.0" prefWidth="413.0" />
+      <Label text="Was the content on this website accessible to you, regardless of any specific needs or conditions you may have?" />
+      <TextArea prefHeight="61.0" prefWidth="413.0" />
+      <Label text="Are there specific improvements or additional features you'd like to see on this website?" />
+      <TextArea prefHeight="61.0" prefWidth="413.0" />
+    </VBox>
+   <Label layoutX="281.0" layoutY="38.0" text="Review">
+      <font>
+         <Font size="50.0" />
+      </font>
+   </Label>
+</AnchorPane>
