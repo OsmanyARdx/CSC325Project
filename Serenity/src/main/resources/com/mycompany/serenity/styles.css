@@ -11,6 +11,7 @@
 .underline-text{
     -fx-underline: true;
 }
+
 .button-as-text {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
@@ -18,17 +19,13 @@
 
 
 .button-styled {
-    -fx-background-color: rgba(128, 128, 128, 0.5); /* Darker grey background color */
-    -fx-border-color: rgba(128, 128, 128, 0.5); /* Darker grey border color */
-    -fx-border-width: 1px; /* Border width (adjust as needed) */
-    -fx-text-fill: #FFFFFF; /* White text color */
-    -fx-text-underline: true; /* Underline text on hover */
+    -fx-background-color: rgba(128, 128, 128, 0.5);
+    -fx-border-color: rgba(128, 128, 128, 0.5);
+    -fx-border-width: 1px;
+    -fx-text-fill: #FFFFFF;
+
 }
 
-.button-styled:hover {
-    -fx-background-color: rgba(192, 192, 192, 0.5); /* Lighter grey background color on hover */
-    -fx-border-color: rgba(192, 192, 192, 0.5); /* Lighter grey border color on hover */
-}
 
 .soft-edge-vbox {
     -fx-background-color: "white";
@@ -36,22 +33,6 @@
     -fx-border-width: 2;
     -fx-border-radius: 10;
     -fx-padding: 10;
-}
-
-.home-Background-Pane{
-    -fx-background-image: url("Untitled-1.png");
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-    -fx-background-repeat: no-repeat;
-}
-
-#titleText {
-    -fx-font-size: 35;
-    -fx-font-weight: bold;
-}
-
-#secondText{
-    -fx-font-size: 20;
 }
 
 .signup-button{
@@ -64,4 +45,10 @@
     -fx-font-size: 18px;
     -fx-font-family: sans-serif;
 }
+
+.footer-pane {
+    -fx-background-color: #87CEEB; /* Light gray */
+}
+
+
 

@@ -1,41 +1,32 @@
 package com.mycompany.serenity;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Label;
-import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URL;
 import java.time.LocalDate;
-import java.util.ResourceBundle;
+import java.util.Objects;
 
-//Vanilla swirl
-public class Safeplace implements Initializable {
-
-    @FXML
-    private ChoiceBox<String> moodChoiceBox;
+public class Safeplace {
 
     @FXML
-    private TextArea Q2TXTArea, Q3TXTArea;
+    private TextArea Q1TXTArea, Q2TXTArea, Q3TXTArea;
 
     @FXML
-    private Label Q1, Q2, Q3;
-
-    @FXML
-    private Button send_to_diary;
-
-    @FXML
-    public void onClick_bn_diary(ActionEvent e) throws IOException {
+    public void handleSend(ActionEvent e) {
         StringBuilder sb = new StringBuilder();
-        sb.append(moodChoiceBox.getValue() + "\n");
-        sb.append(Q2TXTArea.getText() + "\n");
-        sb.append(Q3TXTArea.getText() + "\n");
+        sb.append("How are you feeling?\n" + Q1TXTArea.getText() + "\n");
+        sb.append("What is on your mind?\n" + Q2TXTArea.getText() + "\n");
+        sb.append("What can you do to fix your situation?\n" + Q3TXTArea.getText() + "\n");
 
 
         String userHome = System.getProperty("user.home");
@@ -52,13 +43,58 @@ public class Safeplace implements Initializable {
             writer.close();
             System.out.println("wrote to diary");
         } catch (IOException ex) {
-            throw new RuntimeException(ex);
+            System.out.println(ex);
         }
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // You can initialize the ChoiceBox items here
-        moodChoiceBox.getItems().addAll("Happy", "Sad", "Excited", "Angry", "Calm");
+    @FXML
+    public void handleClickEmergencyResources(ActionEvent event) {
+        switchPage(event, "EmergencyResources.fxml");
     }
+
+    //Meditation page method goes here
+    @FXML
+    public void handleClickMeditate(ActionEvent event) {
+        switchPage(event, "Meditate.fxml");
+    }
+
+    @FXML
+    public void handleClickDailySurvey(ActionEvent event) {
+        switchPage(event, "SelfAssessment.fxml");
+    }
+
+    @FXML
+    public void handleBackToHome(MouseEvent event) {
+        UserSession userSession = UserSession.getInstance();
+        switchToHome(userSession.getName().join(), event);
+    }
+
+    public void switchPage(ActionEvent event, String page) {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page)));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void switchToHome(String userName, MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("userHome.fxml"));
+            Parent root = loader.load();
+            UserHome userHome = loader.getController();
+            userHome.initialize(userName);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+
 }

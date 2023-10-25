@@ -1,12 +1,6 @@
 package com.mycompany.serenity;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
-import com.mongodb.ServerApi;
-import com.mongodb.ServerApiVersion;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import javafx.application.Platform;
@@ -41,25 +35,16 @@ public class Login {
     private Label requiredMessage;
 
     public void initialize(){
-        String connectionString = "mongodb+srv://NicholasG:Serenity123@cluster0.ddkjcfa.mongodb.net/?retryWrites=true&w=majority";
-
-        ServerApi serverApi = ServerApi.builder()
-                .version(ServerApiVersion.V1)
-                .build();
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString(connectionString))
-                .serverApi(serverApi)
-                .build();
-
-        MongoClient mongoClient = MongoClients.create(settings);
-        users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
+        users = UserSession.getInstance().openConn();
     }
 
 
 
     @FXML
     public void handleLogin(ActionEvent event) {
+        UserSession userSession = UserSession.getInstance();
         String userEmail = email.getText();
+        userSession.setEmail(userEmail);
         String pass = password.getText();
 
         if (!allFieldsFull()) {
@@ -82,7 +67,7 @@ public class Login {
                                     if (!passwordMatches) {
                                         Platform.runLater(() -> setErrorMessage("Invalid password, please try again."));
                                     } else {
-                                        Platform.runLater(() -> switchToHome(getName(userEmail).join(), event));
+                                        Platform.runLater(() -> switchToHome(userSession.getName().join(), event));
                                     }
                                 })
                                 .exceptionally(e -> {
@@ -162,14 +147,6 @@ public class Login {
         });
     }
 
-    public CompletableFuture<String> getName(String email) {
-        return CompletableFuture.supplyAsync(() -> {
-            Bson filter = Filters.eq("_id", email);
-            Document userDoc = users.find(filter).first();
-
-            return userDoc != null ? userDoc.getString("name") : null;
-        });
-    }
 
 }
            

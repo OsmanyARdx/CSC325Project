@@ -1,29 +1,153 @@
 package com.mycompany.serenity;
 
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import org.bson.Document;
 
-public class SelfAssessment implements Initializable {
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Objects;
+
+public class SelfAssessment {
     @FXML
     private ChoiceBox<String> mood_todayBOX, energy_levelBOX,
-            sleep_qualityBOX, stressors_todayBOX, positive_eventsBOX, self_careBOX, outlookBOX;
+            sleep_qualityBOX, self_careBOX, outlookBOX;
 
     @FXML
-    private Label mood_today,energy_level, sleep_quality, stressors_today, positive_events, self_care, outlook;
+    private DatePicker todaysDate;
+    @FXML
+    private Pane surveyPane;
+    @FXML
+    private Label surveyComplete;
+    @FXML
+    private Label errorMessage;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    @FXML
+    public void initialize() {
         // You can initialize the ChoiceBox items here
-        mood_todayBOX.getItems().addAll("Happy", "Sad", "Excited", "Angry", "Calm");
+        mood_todayBOX.getItems().addAll("Happy", "Sad", "Excited", "Angry", "Calm", "Depressed", "Anxious");
         energy_levelBOX.getItems().addAll("Energetic", "Moderately active", "Low energy", "Completely drained");
         sleep_qualityBOX.getItems().addAll("Very well", "Somewhat well", "Not very well", "Terribly");
-        stressors_todayBOX.getItems().addAll("Yes", "No", "Not sure");
-        positive_eventsBOX.getItems().addAll("Yes", "No", "Not sure");
         self_careBOX.getItems().addAll("Yes", "No", "Planning to later");
         outlookBOX.getItems().addAll("Optimistic", "Neutral", "Pessimistic");
+
+        if (!checkForSurvey()){
+            surveyPane.setDisable(false);
+            surveyComplete.setOpacity(0);
+        }
+        if(checkForSurvey()){
+            surveyPane.setDisable(true);
+            surveyComplete.setOpacity(1);
+        }
+
+    }
+
+    @FXML
+    public void handleSubmitSurvey() {
+        String mood = mood_todayBOX.getValue();
+        String energyLevel = energy_levelBOX.getValue();
+        String sleepQuality = sleep_qualityBOX.getValue();
+        String selfCare = self_careBOX.getValue();
+        String outlookToday = outlookBOX.getValue();
+        LocalDate date = todaysDate.getValue();
+
+        if (mood == null || energyLevel == null || sleepQuality == null || selfCare == null || outlookToday == null || date == null) {
+            // At least one of the fields is empty
+            errorMessage.setOpacity(1);
+        } else {
+            // All fields are filled in
+            // Continue with the processing
+            Document dailySurveyDocument = new Document();
+            dailySurveyDocument.append("Mood", mood);
+            dailySurveyDocument.append("Energy Level", energyLevel);
+            dailySurveyDocument.append("Sleep Quality", sleepQuality);
+            dailySurveyDocument.append("Self Care", selfCare);
+            dailySurveyDocument.append("Outlook Today", outlookToday);
+            dailySurveyDocument.append("Date", date.toString());
+
+            MongoCollection<Document> users = UserSession.getInstance().openConn();
+            Document filter = new Document("_id", UserSession.getInstance().getEmail());
+            Document update = new Document("$addToSet", new Document("Daily surveys", dailySurveyDocument));
+
+            users.updateOne(filter, update);
+
+            surveyPane.setDisable(true);
+            surveyComplete.setOpacity(1);
+        }
+    }
+
+    @FXML
+    public void handleClickEmergencyResources(ActionEvent event) {
+        switchPage(event, "EmergencyResources.fxml");
+    }
+
+    //Meditation page method goes here
+    @FXML
+    public void handleClickMeditate(ActionEvent event) {
+        switchPage(event, "Medidate.fxml");
+    }
+
+    @FXML
+    public void handleClickSafePlace(ActionEvent event) {
+        switchPage(event, "safeplace.fxml");
+    }
+
+    @FXML
+    public void handleBackToHome(MouseEvent event) {
+        UserSession userSession = UserSession.getInstance();
+        switchToHome(userSession.getName().join(), event);
+    }
+
+    public void switchPage(ActionEvent event, String page) {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page)));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    public void switchToHome(String userName, MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("userHome.fxml"));
+            Parent root = loader.load();
+            UserHome userHome = loader.getController();
+            userHome.initialize(userName);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    public Boolean checkForSurvey(){
+
+        String todaysDate = LocalDate.now().toString();
+
+        MongoCollection<Document> users = UserSession.getInstance().openConn();
+        Document filter = new Document("_id", UserSession.getInstance().getEmail());
+
+        filter.append("Daily surveys.Date", todaysDate);
+        FindIterable<Document> result = users.find(filter);
+
+        return result.iterator().hasNext();
+
     }
 }

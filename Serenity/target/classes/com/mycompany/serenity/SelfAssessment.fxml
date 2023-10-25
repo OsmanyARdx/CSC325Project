@@ -1,104 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.SelfAssessment">
-    <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.SelfAssessment">
+    <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleBackToHome" pickOnBounds="true" preserveRatio="true">
         <Image url="@images/logo.png" />
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
     </ImageView>
-    <VBox layoutX="155.0" layoutY="4.0" prefHeight="394.0" prefWidth="433.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
-        <Label fx:id="mood_today" text="How are you feeling (mood)?" />
-
-        <ChoiceBox fx:id="mood_todayBOX" prefWidth="150.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Happy" />
-                    <String fx:value="Sad" />
-                    <String fx:value="Excited" />
-                    <String fx:value="Angry" />
-                    <String fx:value="Calm" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
-
-        <Label fx:id="energy_level" prefHeight="24.0" prefWidth="267.0" text="What best describes your energy level today?" />
-        <ChoiceBox fx:id="energy_levelBOX" prefWidth="150.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Energetic" />
-                    <String fx:value="Moderately active" />
-                    <String fx:value="Low energy" />
-                    <String fx:value="Completely drained" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
-
-
-        <Label fx:id="sleep_quality" text="How well did you sleep last night?" />
-        <ChoiceBox fx:id="sleep_qualityBOX" prefWidth="150.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Very well" />
-                    <String fx:value="Somewhat well" />
-                    <String fx:value="Not very well" />
-                    <String fx:value="Terribly" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
-
-
-        <Label fx:id="stressors_today" text="Have you experienced any significant life stressors or triggers today?" />
-        <ChoiceBox fx:id="stressors_todayBOX" prefWidth="150.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Yes" />
-                    <String fx:value="No" />
-                    <String fx:value="Not sure" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
-
-
-        <Label fx:id="positive_events" text="Have you experienced any notable positive events today?" />
-        <ChoiceBox fx:id="positive_eventsBOX" prefWidth="150.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Yes" />
-                    <String fx:value="No" />
-                    <String fx:value="Not sure" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
-
-        <Label fx:id="self_care" text="Did you practice any relaxation or self-care techniques today?" />
-        <ChoiceBox fx:id="self_careBOX" prefWidth="150.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Yes" />
-                    <String fx:value="No" />
-                    <String fx:value="Planning to later" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
-
-
-        <Label fx:id="outlook" text="What is your outlook for the rest of the day?" />
-        <ChoiceBox fx:id="outlookBOX" prefWidth="150.0">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Optimistic" />
-                    <String fx:value="Neutral" />
-                    <String fx:value="Pessimistic" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
-
-    </VBox>
+   <Pane fx:id="surveyPane" layoutX="227.0" layoutY="162.0" prefHeight="550.0" prefWidth="700.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
+      <children>
+         <Label layoutX="14.0" layoutY="14.0" text="How would you describe your emotional state?">
+            <font>
+               <Font name="SansSerif Regular" size="18.0" />
+            </font>
+         </Label>
+   
+   
+           <Label layoutX="14.0" layoutY="86.0" text="How well did you sleep last night?">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+   
+           <Label layoutX="14.0" layoutY="166.0" prefHeight="24.0" prefWidth="405.0" text="What best describes your energy level today?">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+   
+           <Label layoutX="14.0" layoutY="249.0" text="Did you practice any relaxation or self-care techniques today?">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+   
+   
+           <Label layoutX="14.0" layoutY="330.0" text="What is your outlook for the rest of the day?">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <DatePicker fx:id="todaysDate" layoutX="14.0" layoutY="451.0" />
+         <Label layoutX="14.0" layoutY="413.0" text="Please enter today's date">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+         <Button layoutX="14.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleSubmitSurvey" styleClass="signup-button" stylesheets="@styles.css" text="Submit survey" />
+         <Label fx:id="errorMessage" layoutX="261.0" layoutY="506.0" opacity="0.0" text="Please fill in all fields!" textFill="RED">
+            <font>
+               <Font name="System Bold" size="20.0" />
+            </font>
+         </Label>
+         <ChoiceBox fx:id="mood_todayBOX" layoutX="14.0" layoutY="49.0" prefWidth="150.0" />
+         <ChoiceBox fx:id="sleep_qualityBOX" layoutX="14.0" layoutY="127.0" prefWidth="150.0" />
+         <ChoiceBox fx:id="energy_levelBOX" layoutX="14.0" layoutY="212.0" prefWidth="150.0" />
+         <ChoiceBox fx:id="self_careBOX" layoutX="14.0" layoutY="294.0" prefWidth="150.0" />
+         <ChoiceBox fx:id="outlookBOX" layoutX="14.0" layoutY="374.0" prefWidth="150.0" />
+      </children>
+   </Pane>
+   <Button layoutX="212.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleClickMeditate" styleClass="button-as-text" stylesheets="@styles.css" text="Meditate">
+      <font>
+         <Font name="SansSerif Bold" size="20.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+   <Button layoutX="356.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleClickEmergencyResources" styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources">
+      <font>
+         <Font name="SansSerif Bold" size="20.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+   <Button layoutX="620.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleClickSafePlace" styleClass="button-as-text" stylesheets="@styles.css" text="Safe Place">
+      <font>
+         <Font name="SansSerif Bold" size="20.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+   <Label fx:id="dailySurvey" layoutX="782.0" layoutY="49.0" prefHeight="24.0" prefWidth="129.0" text="Daily survey" textFill="WHITE" underline="true">
+      <font>
+         <Font name="SansSerif Bold" size="20.0" />
+      </font>
+   </Label>
+   <Label fx:id="surveyComplete" layoutX="227.0" layoutY="113.0" prefHeight="33.0" prefWidth="700.0" text="Thank you for submitting! Please come back tomorrow.">
+      <font>
+         <Font name="SansSerif Bold" size="24.0" />
+      </font>
+   </Label>
 </AnchorPane>
