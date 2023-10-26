@@ -157,7 +157,6 @@ public class Safeplace {
             writer.write(body);
             writer.flush();
             writer.close();
-
             //Get the response
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
