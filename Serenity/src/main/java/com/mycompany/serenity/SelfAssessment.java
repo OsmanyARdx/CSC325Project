@@ -2,6 +2,7 @@ package com.mycompany.serenity;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,15 +44,21 @@ public class SelfAssessment {
         self_careBOX.getItems().addAll("Yes", "No", "Planning to later");
         outlookBOX.getItems().addAll("Optimistic", "Neutral", "Pessimistic");
 
-        if (!checkForSurvey()){
+        Platform.runLater(() -> {
+            boolean hasSurvey = checkForSurvey();
+            handleSurveyCheckResult(hasSurvey);
+        });
+    }
+
+
+    private void handleSurveyCheckResult(boolean hasSurvey) {
+        if (!hasSurvey) {
             surveyPane.setDisable(false);
             surveyComplete.setOpacity(0);
-        }
-        if(checkForSurvey()){
+        } else {
             surveyPane.setDisable(true);
             surveyComplete.setOpacity(1);
         }
-
     }
 
     @FXML
@@ -96,7 +103,7 @@ public class SelfAssessment {
     //Meditation page method goes here
     @FXML
     public void handleClickMeditate(ActionEvent event) {
-        switchPage(event, "Medidate.fxml");
+        switchPage(event, "Meditation.fxml");
     }
 
     @FXML

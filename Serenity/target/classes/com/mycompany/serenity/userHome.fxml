@@ -6,6 +6,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.UserHome">
@@ -68,5 +70,35 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Pane layoutY="630.0" prefHeight="90.0" prefWidth="1080.0" styleClass="footer-pane" stylesheets="@styles.css">
+         <children>
+            <Label layoutX="147.0" layoutY="29.0" text="Serenity" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="225.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.png" />
+               </image>
+            </ImageView>
+            <Line endX="717.0" layoutX="347.0" layoutY="61.0" startX="-333.0" stroke="#0865d0" />
+            <Label layoutX="110.0" layoutY="69.0" text="© 2023 Serenity, Inc. All Rights Reserved" textFill="#545454">
+               <font>
+                  <Font name="SansSerif Regular" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="495.0" layoutY="29.0" text="About Us" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="785.0" layoutY="29.0" prefHeight="24.0" prefWidth="164.0" text="Leave a review" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

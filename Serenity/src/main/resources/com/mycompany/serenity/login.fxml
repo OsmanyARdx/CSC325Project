@@ -71,6 +71,9 @@
             <String fx:value="button-styled" />
             <String fx:value="button" />
          </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Label fx:id="requiredMessage" layoutX="362.0" layoutY="127.0" opacity="0.0" text="Label" textFill="#c61212">
          <font>
