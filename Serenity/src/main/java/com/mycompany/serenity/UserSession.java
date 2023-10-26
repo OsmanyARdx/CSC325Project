@@ -44,7 +44,7 @@ public class UserSession {
     }
     public String getEmail(){ return this.email; }
     public MongoCollection<Document> openConn(){
-        String connectionString = "mongodb+srv://NicholasG:Serenity123@cluster0.ddkjcfa.mongodb.net/?retryWrites=true&w=majority";
+        String connectionString = System.getenv("mongoURL");
 
         ServerApi serverApi = ServerApi.builder()
                 .version(ServerApiVersion.V1)
