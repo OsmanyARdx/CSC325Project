@@ -73,7 +73,10 @@
       </Button>
       <Pane layoutX="589.0" layoutY="180.0" prefHeight="461.0" prefWidth="471.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
          <children>
-            <Button layoutX="363.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleSendMessage" prefHeight="25.0" prefWidth="94.0" styleClass="sendButton" stylesheets="@styles.css" text="Send message" />
+            <Button layoutX="363.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleSendMessage" prefHeight="25.0" prefWidth="94.0" styleClass="sendButton" stylesheets="@styles.css" text="Send message">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <TextArea fx:id="chatHistory" editable="false" layoutX="13.0" layoutY="14.0" prefHeight="373.0" prefWidth="446.0" wrapText="true" />
             <TextField fx:id="userMessageInput" layoutX="13.0" layoutY="395.0" prefHeight="25.0" prefWidth="446.0" />
          </children>
