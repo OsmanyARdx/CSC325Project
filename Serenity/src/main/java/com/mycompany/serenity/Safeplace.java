@@ -134,14 +134,9 @@ public class Safeplace {
         chatHistory.appendText(message + "\n\n");
     }
 
-
-    String url = "https://api.openai.com/v1/chat/completions";
-    String apiKey = "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";
-    String model = "gpt-3.5-turbo";
-
     public String handleGPTRequest(String message){
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "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";
+        String apiKey = System.getenv("apiKey");
         String model = "gpt-3.5-turbo";
 
         try{
