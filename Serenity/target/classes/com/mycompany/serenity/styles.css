@@ -35,6 +35,12 @@
     -fx-padding: 10; /*comment*/
 }
 
+.soft-edge-shape {
+    -fx-background-radius: 20;
+    -fx-border-radius: 10;
+    -fx-border-width: 2;
+}
+
 .signup-button{
     -fx-padding:0.6em 2em;
     -fx-margin:1em;

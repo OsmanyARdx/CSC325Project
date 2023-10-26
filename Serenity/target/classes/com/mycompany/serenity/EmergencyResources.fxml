@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -10,6 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.EmergencyResources">
    <children>
+      <VBox layoutX="156.0" layoutY="168.0" prefHeight="441.0" prefWidth="794.0" styleClass="soft-edge-vbox" />
       <Button layoutX="736.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleClickDailySurvey" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Daily survey">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -47,12 +49,16 @@
             <Font name="SansSerif Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="389.0" layoutY="153.0" text="Emergency Assistance: 911" underline="true" />
-      <Label layoutX="242.0" layoutY="222.0" text="Hotlines:" wrapText="true" />
-      <Label layoutX="716.0" layoutY="222.0" text="Phone Numbers:" underline="true" />
-      <Label layoutX="784.0" layoutY="295.0" text="988" />
-      <Label layoutX="249.0" layoutY="292.0" text="-National Suicide Prevention Lifeline." />
-      <Label layoutX="777.0" layoutY="383.0" text="1-800-942-6906" />
-      <Label layoutX="249.0" layoutY="380.0" text="-Domestic Violence:" />
+      <Label layoutX="476.0" layoutY="187.0" text="Emergency Assistance: 911" underline="true" />
+      <Label layoutX="215.0" layoutY="273.0" text="Hotlines:" underline="true" />
+      <Label layoutX="702.0" layoutY="266.0" text="Phone Numbers:" underline="true" />
+      <Label layoutX="739.0" layoutY="335.0" text="988" />
+      <Label layoutX="215.0" layoutY="335.0" text="-National Suicide Prevention Lifeline." />
+      <Label layoutX="704.0" layoutY="403.0" text="1-800-942-6906" />
+      <Label layoutX="215.0" layoutY="403.0" text="-Domestic Violence:" />
+      <Label layoutX="215.0" layoutY="472.0" text="-NYC WELL:" />
+      <Label layoutX="701.0" layoutY="472.0" text="1-888-NYC-WELL" />
+      <Label layoutX="216.0" layoutY="539.0" text="-OASAS HOPEline" />
+      <Label layoutX="701.0" layoutY="539.0" text="1-877-8-HOPENY" />
    </children>
 </AnchorPane>
