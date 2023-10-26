@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.EmergencyResources">
    <children>
       <Button layoutX="736.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleClickDailySurvey" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Daily survey">
@@ -48,5 +47,12 @@
             <Font name="SansSerif Bold" size="20.0" />
          </font>
       </Button>
+      <Label layoutX="389.0" layoutY="153.0" text="Emergency Assistance: 911" underline="true" />
+      <Label layoutX="242.0" layoutY="222.0" text="Hotlines:" wrapText="true" />
+      <Label layoutX="716.0" layoutY="222.0" text="Phone Numbers:" underline="true" />
+      <Label layoutX="784.0" layoutY="295.0" text="988" />
+      <Label layoutX="249.0" layoutY="292.0" text="-National Suicide Prevention Lifeline." />
+      <Label layoutX="777.0" layoutY="383.0" text="1-800-942-6906" />
+      <Label layoutX="249.0" layoutY="380.0" text="-Domestic Violence:" />
    </children>
 </AnchorPane>
