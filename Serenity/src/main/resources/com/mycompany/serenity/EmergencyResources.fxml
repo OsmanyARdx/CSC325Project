@@ -12,7 +12,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.EmergencyResources">
    <children>
       <VBox layoutX="156.0" layoutY="168.0" prefHeight="441.0" prefWidth="794.0" styleClass="soft-edge-vbox" />
-      <Button layoutX="736.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleClickDailySurvey" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Daily survey">
+      <Button layoutX="736.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleClickSurvey" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Daily survey">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -28,7 +28,7 @@
             <Font name="SansSerif Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="342.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleClickEmergencyResources" styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources" textFill="WHITE" underline="true">
+      <Button layoutX="342.0" layoutY="69.0" mnemonicParsing="false" styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources" textFill="WHITE" underline="true">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

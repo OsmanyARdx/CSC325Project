@@ -36,4 +36,7 @@ public class EmergencyResources {
     public void handleClickSurvey(ActionEvent event){
         switchPage(event, "SelfAssessment.fxml");
     }
+
+    @FXML
+    public void handleBackToHome(ActionEvent event){ switchPage(event, "userHome.fxml"); }
 }
