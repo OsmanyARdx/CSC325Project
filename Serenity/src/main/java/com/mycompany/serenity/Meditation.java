@@ -28,17 +28,17 @@ public class Meditation implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        file = new File("V1.mp4");
+        file = new File("src/main/resources/com/mycompany/serenity/videos/V1.mp4");
         media = new Media(file.toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaView.setMediaPlayer(mediaPlayer);
 
-        file2 = new File("V2.mp4");
+        file2 = new File("src/main/resources/com/mycompany/serenity/videos/V2.mp4");
         media2 = new Media(file2.toURI().toString());
         mediaPlayer2 = new MediaPlayer(media2);
         mediaView2.setMediaPlayer(mediaPlayer2);
 
-        file3 = new File("V3.mp4");
+        file3 = new File("src/main/resources/com/mycompany/serenity/videos/V3.mp4");
         media3 = new Media(file3.toURI().toString());
         mediaPlayer3 = new MediaPlayer(media3);
         mediaView3.setMediaPlayer(mediaPlayer3);
