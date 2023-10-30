@@ -14,7 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,11 +26,6 @@ import java.util.regex.Pattern;
 
 public class Signup {
 
-
-    @FXML
-    private Button clickToLogin;
-    @FXML
-    private Button finishSignup;
     @FXML
     private TextField name;
     @FXML
@@ -43,6 +37,11 @@ public class Signup {
     @FXML
     private Label requiredMessage;
 
+
+    /**
+     * switch to sign up page
+     * @param event on button click
+     */
     @FXML
     public void handleClickToLogin(ActionEvent event){
         try {
@@ -55,6 +54,14 @@ public class Signup {
             System.out.println(e);
         }
     }
+
+    /**
+     * Add user information if the entered values pass all the checks
+     * Email must be valid
+     * Passwords must match
+     * No field can be empty
+     * @param event on button click
+     */
     @FXML
     public void handleFinishSignup(ActionEvent event) {
         String userName = name.getText();
@@ -83,10 +90,20 @@ public class Signup {
         }
     }
 
+    /**
+     * Helper function that changes the error message
+     * @param message text to change label to
+     */
     private void setErrorMessage(String message){
         requiredMessage.setText(message);
         requiredMessage.setOpacity(1);
     }
+
+    /**
+     * regex to check if an email format is correct
+     * @param email user's entered email
+     * @return true/false
+     */
     public Boolean isValidEmail(String email){
         String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
                 "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -95,10 +112,21 @@ public class Signup {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+    /**
+     * Check to make sure user filled out all fields
+     * @return true/false
+     */
     public Boolean allFieldsFull(){
         return !name.getText().isEmpty() && !email.getText().isEmpty() && !password.getText().isEmpty() && !confirmPass.getText().isEmpty();
     }
 
+    /**
+     * Adds a user to mongoDB databsae
+     * @param name user's name
+     * @param email user's email
+     * @param password hashed password
+     */
     public void addUser(String name, String email, String password){
         try (MongoClient mongoClient = openConn()) {
             MongoCollection<Document> users = mongoClient.getDatabase("Serenity").getCollection("serenity-users-db");
@@ -113,6 +141,11 @@ public class Signup {
             users.insertOne(userDoc);
         }
     }
+
+    /**
+     * Establish a connection with MongoDB database
+     * @return mongo client
+     */
     public MongoClient openConn() {
         String connectionString = "mongodb+srv://NicholasG:Serenity123@cluster0.ddkjcfa.mongodb.net/?retryWrites=true&w=majority";
 

@@ -14,7 +14,7 @@ import org.bson.conversions.Bson;
 import java.util.concurrent.CompletableFuture;
 
 public class UserSession {
-    private static UserSession instance;
+    private static UserSession instance; //singleton instance
     private String email;
 
     private Boolean isSurveySubmitted;
@@ -23,6 +23,10 @@ public class UserSession {
         //leave empty
     }
 
+    /**
+     *
+     * @return current user instance
+     */
     public static UserSession getInstance() {
         if (instance == null) {
             instance = new UserSession();
@@ -30,6 +34,10 @@ public class UserSession {
         return instance;
     }
 
+    /**
+     * Asynchronous method to query database for user's name, based on their email.
+     * @return user name
+     */
     public CompletableFuture<String> getName() {
         return CompletableFuture.supplyAsync(() -> {
             Bson filter = Filters.eq("_id", email);
@@ -43,6 +51,11 @@ public class UserSession {
         this.email = email;
     }
     public String getEmail(){ return this.email; }
+
+    /**
+     * Establish connection with mongoDB database
+     * @return the serenity database
+     */
     public MongoCollection<Document> openConn(){
         String connectionString = System.getenv("mongoURL");
 
