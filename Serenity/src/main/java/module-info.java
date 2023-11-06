@@ -5,7 +5,7 @@ module com.mycompany.serenity {
     requires org.mongodb.bson;
     requires bcrypt;
     requires org.mongodb.driver.core;
-    requires javafx.media;
+    //requires javafx.media;
     requires org.json;
 
     opens com.mycompany.serenity to javafx.fxml;
