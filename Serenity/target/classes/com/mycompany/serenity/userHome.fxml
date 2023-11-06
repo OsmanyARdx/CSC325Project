@@ -45,14 +45,6 @@
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="340.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleClickMeditate" styleClass="button-as-text" stylesheets="@styles.css" text="Meditate">
-         <font>
-            <Font name="SansSerif Bold" size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <Button layoutX="694.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleClickSafePlace" styleClass="button-as-text" stylesheets="@styles.css" text="Safe Place">
          <font>
             <Font name="SansSerif Bold" size="20.0" />
