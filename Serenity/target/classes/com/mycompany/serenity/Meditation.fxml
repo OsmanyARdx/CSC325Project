@@ -10,9 +10,13 @@
     <content>
         <AnchorPane prefHeight="772.0" prefWidth="1080">
             <children>
+                <MediaView fx:id="mediaView" fitHeight="300.0" fitWidth="400.0" layoutY="30.0" />
+                <MediaView fx:id="mediaView2" fitHeight="300.0" fitWidth="400.0" layoutX="550.0" layoutY="30.0" />
                 <Button fx:id="playButton" layoutX="10.0" layoutY="300.0" mnemonicParsing="false" onAction="#playMedia" prefHeight="38.0" prefWidth="87.0" text="Play" />
                 <Button fx:id="pauseButton" layoutX="110.0" layoutY="300.0" mnemonicParsing="false" onAction="#pauseMedia" prefHeight="38.0" prefWidth="87.0" text="Pause" />
                 <Button fx:id="resetButton" layoutX="210.0" layoutY="300.0" mnemonicParsing="false" onAction="#resetMedia" prefHeight="38.0" prefWidth="87.0" text="Reset" />
+                <MediaView fx:id="mediaView3" fitHeight="300.0" fitWidth="400.0" layoutX="-9.0" layoutY="440.0" />
+                <MediaView fx:id="mediaView4" fitHeight="300.0" fitWidth="400.0" layoutX="550.0" layoutY="440.0" />
                 <Button fx:id="playButton2" layoutX="560.0" layoutY="300.0" mnemonicParsing="false" onAction="#playMedia2" prefHeight="38.0" prefWidth="87.0" text="Play" />
                 <Button fx:id="pauseButton2" layoutX="660.0" layoutY="300.0" mnemonicParsing="false" onAction="#pauseMedia2" prefHeight="38.0" prefWidth="87.0" text="Pause" />
                 <Button fx:id="resetButton2" layoutX="760.0" layoutY="300.0" mnemonicParsing="false" onAction="#resetMedia2" prefHeight="38.0" prefWidth="87.0" text="Reset" />
