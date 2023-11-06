@@ -2,6 +2,7 @@ package com.mycompany.serenity;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,6 +35,11 @@ public class SelfAssessment {
     @FXML
     private Label errorMessage;
 
+    /**
+     * Initialize the choice box items
+     * The page will only show the survey if you haven't filled it out today.
+     * Otherwise, shows a thank you message.
+     */
     @FXML
     public void initialize() {
         // You can initialize the ChoiceBox items here
@@ -43,17 +49,47 @@ public class SelfAssessment {
         self_careBOX.getItems().addAll("Yes", "No", "Planning to later");
         outlookBOX.getItems().addAll("Optimistic", "Neutral", "Pessimistic");
 
-        if (!checkForSurvey()){
+        Platform.runLater(() -> {
+            boolean hasSurvey = checkForSurvey();
+            handleSurveyCheckResult(hasSurvey);
+        });
+    }
+
+    /**
+     * Helper method for showing the right survey screen
+     * @param hasSurvey
+     */
+    private void handleSurveyCheckResult(boolean hasSurvey) {
+        if (!hasSurvey) {
             surveyPane.setDisable(false);
             surveyComplete.setOpacity(0);
-        }
-        if(checkForSurvey()){
+        } else {
             surveyPane.setDisable(true);
             surveyComplete.setOpacity(1);
         }
+    }
+
+    /**
+     * Query DB and return true if a survey exists with today's date.
+     * @return true/false
+     */
+    public Boolean checkForSurvey(){
+
+        String todaysDate = LocalDate.now().toString();
+
+        MongoCollection<Document> users = UserSession.getInstance().openConn();
+        Document filter = new Document("_id", UserSession.getInstance().getEmail());
+
+        filter.append("Daily surveys.Date", todaysDate);
+        FindIterable<Document> result = users.find(filter);
+
+        return result.iterator().hasNext();
 
     }
 
+    /**
+     * Send survey info to database
+     */
     @FXML
     public void handleSubmitSurvey() {
         String mood = mood_todayBOX.getValue();
@@ -93,23 +129,32 @@ public class SelfAssessment {
         switchPage(event, "EmergencyResources.fxml");
     }
 
-    //Meditation page method goes here
     @FXML
     public void handleClickMeditate(ActionEvent event) {
-        switchPage(event, "Medidate.fxml");
+        switchPage(event, "Meditation.fxml");
     }
+
 
     @FXML
     public void handleClickSafePlace(ActionEvent event) {
         switchPage(event, "safeplace.fxml");
     }
 
+    /**
+     * Brings user back to userHome
+     * @param event mouse click
+     */
     @FXML
     public void handleBackToHome(MouseEvent event) {
         UserSession userSession = UserSession.getInstance();
         switchToHome(userSession.getName().join(), event);
     }
 
+    /**
+     * Helper function for routing between any page that isn't userHome
+     * @param event on click
+     * @param page page to route to
+     */
     public void switchPage(ActionEvent event, String page) {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page)));
@@ -122,6 +167,11 @@ public class SelfAssessment {
         }
     }
 
+    /**
+     * Helper function for returning to userHome page
+     * @param userName current user's name
+     * @param event mouse click
+     */
     public void switchToHome(String userName, MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("userHome.fxml"));
@@ -135,19 +185,5 @@ public class SelfAssessment {
         } catch (IOException e) {
             System.out.println(e);
         }
-    }
-
-    public Boolean checkForSurvey(){
-
-        String todaysDate = LocalDate.now().toString();
-
-        MongoCollection<Document> users = UserSession.getInstance().openConn();
-        Document filter = new Document("_id", UserSession.getInstance().getEmail());
-
-        filter.append("Daily surveys.Date", todaysDate);
-        FindIterable<Document> result = users.find(filter);
-
-        return result.iterator().hasNext();
-
     }
 }

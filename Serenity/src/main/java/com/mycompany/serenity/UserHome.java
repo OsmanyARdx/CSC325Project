@@ -47,7 +47,7 @@ public class UserHome {
      */
     @FXML
     public void handleClickMeditate(ActionEvent event){
-        switchPage(event, "Meditate.fxml");
+        switchPage(event, "Meditation.fxml");
     }
 
     /**
@@ -87,4 +87,3 @@ public class UserHome {
     }
 
 }
-
