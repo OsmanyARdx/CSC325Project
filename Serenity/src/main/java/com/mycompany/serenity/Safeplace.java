@@ -67,7 +67,7 @@ public class Safeplace {
     //Meditation page method goes here
     @FXML
     public void handleClickMeditate(ActionEvent event) {
-        switchPage(event, "Meditation.fxml");
+        switchPage(event, "Meditate.fxml");
     }
 
     @FXML

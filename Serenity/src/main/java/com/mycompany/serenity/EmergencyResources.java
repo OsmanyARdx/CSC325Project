@@ -31,7 +31,7 @@ public class EmergencyResources {
     }
     @FXML
     public void handleClickMeditate(ActionEvent event){
-        switchPage(event, "Meditation.fxml");
+        switchPage(event, "Meditate.fxml");
     }
     @FXML
     public void handleClickSurvey(ActionEvent event){
