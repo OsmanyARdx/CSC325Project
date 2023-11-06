@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,73 +18,71 @@
             <image>
                 <Image url="@images/logo.png" />
             </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
         </ImageView>
-      <Label fx:id="dailySurvey" layoutX="589.0" layoutY="62.0" prefHeight="24.0" prefWidth="110.0" text="Safe place" textFill="WHITE" underline="true">
-         <font>
-            <Font name="SansSerif Bold" size="20.0" />
-         </font>
-      </Label>
-      <Pane layoutX="70.0" layoutY="180.0" prefHeight="461.0" prefWidth="962.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
-         <children>
-            <Label layoutX="14.0" layoutY="143.0" text="What is on your mind?">
-               <font>
-                  <Font name="SansSerif Regular" size="20.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="Q3TXTArea" layoutX="14.0" layoutY="311.0" prefHeight="75.0" prefWidth="531.0" />
-            <Label layoutX="15.0" layoutY="263.0" text="What can you do to fix your situation?">
-               <font>
-                  <Font name="SansSerif Regular" size="20.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="Q2TXTArea" layoutX="14.0" layoutY="176.0" prefHeight="75.0" prefWidth="531.0" />
-            <Button layoutX="16.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleSend" styleClass="signup-button" stylesheets="@styles.css" text="Send to text file" />
-            <Label layoutX="14.0" layoutY="14.0" text="How are you feeling?">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="Q1TXTArea" layoutX="14.0" layoutY="52.0" prefHeight="75.0" prefWidth="531.0" />
-            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="570.0" layoutY="26.0" prefHeight="64.0" prefWidth="373.0" text="**This section is NOT recorded in our database." textOverrun="CLIP" wrapText="true">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="570.0" layoutY="103.0" prefHeight="64.0" prefWidth="373.0" text="Please feel free to openly vent your thoughts." textOverrun="CLIP" wrapText="true">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="238.0" fitWidth="342.0" layoutX="586.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/safeplacelogo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Button layoutX="307.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickEmergencyResources" styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources">
-         <font>
-            <Font name="SansSerif Bold" size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="176.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickMeditate" styleClass="button-as-text" stylesheets="@styles.css" text="Meditate">
-         <font>
-            <Font name="SansSerif Bold" size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="726.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleClickDailySurvey" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Daily survey">
-         <font>
-            <Font name="SansSerif Bold" size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+        <Label fx:id="dailySurvey" layoutX="589.0" layoutY="62.0" prefHeight="24.0" prefWidth="110.0" text="Safe place" textFill="WHITE" underline="true">
+            <font>
+                <Font name="SansSerif Bold" size="20.0" />
+            </font>
+        </Label>
+        <Pane layoutX="14.0" layoutY="180.0" prefHeight="461.0" prefWidth="562.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
+            <children>
+                <Label layoutX="14.0" layoutY="143.0" text="What is on your mind?">
+                    <font>
+                        <Font name="SansSerif Regular" size="20.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="Q3TXTArea" layoutX="14.0" layoutY="311.0" prefHeight="75.0" prefWidth="531.0" />
+                <Label layoutX="15.0" layoutY="263.0" text="What can you do to fix your situation?">
+                    <font>
+                        <Font name="SansSerif Regular" size="20.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="Q2TXTArea" layoutX="14.0" layoutY="176.0" prefHeight="75.0" prefWidth="531.0" />
+                <Button layoutX="16.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleSendToFiles" styleClass="signup-button" stylesheets="@styles.css" text="Send to text file" />
+                <Label layoutX="14.0" layoutY="14.0" text="How are you feeling?">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="Q1TXTArea" layoutX="14.0" layoutY="52.0" prefHeight="75.0" prefWidth="531.0" />
+            </children>
+        </Pane>
+        <Button layoutX="307.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickEmergencyResources" styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources">
+            <font>
+                <Font name="SansSerif Bold" size="20.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="176.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickMeditate" styleClass="button-as-text" stylesheets="@styles.css" text="Meditate">
+            <font>
+                <Font name="SansSerif Bold" size="20.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="726.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleClickDailySurvey" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Daily survey">
+            <font>
+                <Font name="SansSerif Bold" size="20.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Pane layoutX="589.0" layoutY="180.0" prefHeight="461.0" prefWidth="471.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
+            <children>
+                <Button layoutX="363.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleSendMessage" prefHeight="25.0" prefWidth="94.0" styleClass="sendButton" stylesheets="@styles.css" text="Send message">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+                <TextArea fx:id="chatHistory" editable="false" layoutX="13.0" layoutY="14.0" prefHeight="373.0" prefWidth="446.0" wrapText="true" />
+                <TextField fx:id="userMessageInput" layoutX="13.0" layoutY="395.0" prefHeight="25.0" prefWidth="446.0" />
+            </children>
+        </Pane>
     </children>
 </AnchorPane>

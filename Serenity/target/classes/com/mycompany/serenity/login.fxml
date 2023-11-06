@@ -31,9 +31,9 @@
             <Font name="SansSerif Regular" size="31.0" />
          </font>
       </Label>
-      <Label alignment="TOP_CENTER" layoutX="304.0" layoutY="426.0" stylesheets="@styles.css" text="Not a member?" textFill="#837676">
+      <Label alignment="TOP_CENTER" layoutX="292.0" layoutY="425.0" prefHeight="23.0" prefWidth="132.0" stylesheets="@styles.css" text="Not a member?" textFill="#837676">
          <font>
-            <Font name="SansSerif Regular" size="16.0" />
+            <Font name="SansSerif Regular" size="18.0" />
          </font>
       </Label>
       <TextField fx:id="email" layoutX="362.0" layoutY="185.0" prefHeight="25.0" prefWidth="202.0" promptText="example@gmail.com">
@@ -71,6 +71,9 @@
             <String fx:value="button-styled" />
             <String fx:value="button" />
          </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Label fx:id="requiredMessage" layoutX="362.0" layoutY="127.0" opacity="0.0" text="Label" textFill="#c61212">
          <font>
