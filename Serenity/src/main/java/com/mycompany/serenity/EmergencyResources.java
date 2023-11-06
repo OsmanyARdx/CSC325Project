@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -38,5 +39,23 @@ public class EmergencyResources {
     }
 
     @FXML
-    public void handleBackToHome(ActionEvent event){ switchPage(event, "userHome.fxml"); }
+    public void handleBackToHome(MouseEvent event) {
+        UserSession userSession = UserSession.getInstance();
+        switchToHome(userSession.getName().join(), event);
+    }
+
+    public void switchToHome(String userName, MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("userHome.fxml"));
+            Parent root = loader.load();
+            UserHome userHome = loader.getController();
+            userHome.initialize(userName);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
 }

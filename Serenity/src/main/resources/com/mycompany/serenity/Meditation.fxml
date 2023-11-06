@@ -23,9 +23,6 @@
                 <Button fx:id="playButton3" layoutX="10.0" layoutY="700.0" mnemonicParsing="false" onAction="#playMedia3" prefHeight="38.0" prefWidth="87.0" text="Play" />
                 <Button fx:id="pauseButton3" layoutX="109.0" layoutY="700.0" mnemonicParsing="false" onAction="#pauseMedia3" prefHeight="38.0" prefWidth="87.0" text="Pause" />
                 <Button fx:id="resetButton3" layoutX="210.0" layoutY="700.0" mnemonicParsing="false" onAction="#resetMedia3" prefHeight="38.0" prefWidth="87.0" text="Reset" />
-                <Button fx:id="playButton21" layoutX="560.0" layoutY="700.0" mnemonicParsing="false" onAction="#playMedia4" prefHeight="38.0" prefWidth="87.0" text="Play" />
-                <Button fx:id="pauseButton21" layoutX="660.0" layoutY="700.0" mnemonicParsing="false" onAction="#pauseMedia4" prefHeight="38.0" prefWidth="87.0" text="Pause" />
-                <Button fx:id="resetButton21" layoutX="760.0" layoutY="700.0" mnemonicParsing="false" onAction="#resetMedia4" prefHeight="38.0" prefWidth="87.0" text="Reset" />
                 <Label fx:id="label" layoutX="8.0" layoutY="10.0" prefHeight="17.0" prefWidth="378.0" text="This video is for beginners who are trying meditation for the first time." />
                 <Label fx:id="label1" layoutX="558.0" layoutY="10.0" prefHeight="17.0" prefWidth="378.0" text="This video is for users who have trouble dealing with their anxiety." />
                 <Label fx:id="label2" layoutX="8.0" layoutY="420.0" prefHeight="17.0" prefWidth="378.0" text="This is a 10 minute meditation video." />

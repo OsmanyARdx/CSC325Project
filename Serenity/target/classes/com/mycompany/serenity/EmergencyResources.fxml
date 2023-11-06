@@ -11,6 +11,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.EmergencyResources">
     <children>
+        <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleBackToHome" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/logo.png" />
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
         <Button layoutX="736.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleClickSurvey" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Daily survey">
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -35,11 +41,6 @@
                 <Font name="SansSerif Bold" size="20.0" />
             </font>
         </Button>
-        <ImageView fitHeight="125.0" fitWidth="112.0" layoutX="44.0" layoutY="24.0" onMouseClicked="#handleBackToHome" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/logo.png" />
-            </image>
-        </ImageView>
         <Button layoutX="585.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleClickSafePlace" styleClass="button-as-text" stylesheets="@styles.css" text="Safe Place">
             <cursor>
                 <Cursor fx:constant="HAND" />
