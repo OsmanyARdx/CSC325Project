@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="ALTERNATIVE_JRE_PATH" value="21" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="apiKey" value="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" />
+      <env name="mongoURL" value="mongodb+srv://NicholasG:Serenity123@cluster0.ddkjcfa.mongodb.net/?retryWrites=true&amp;w=majority" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.mycompany.serenity.App" />
+    <module name="Serenity" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
