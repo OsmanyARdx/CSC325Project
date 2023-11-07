@@ -69,6 +69,10 @@ public class UserHome {
         UserSession.getInstance().setEmail(null);
     }
 
+    @FXML public void handleClickReview(ActionEvent event){
+        switchPage(event, "ReviewPage.fxml");
+    }
+
     /**
      * Helper method for switching between pages
      * @param event on click action

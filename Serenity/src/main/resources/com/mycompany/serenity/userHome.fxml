@@ -93,10 +93,13 @@
                   <Font name="SansSerif Regular" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="785.0" layoutY="29.0" prefHeight="24.0" prefWidth="164.0" text="Leave a review" textFill="WHITE">
+            <Label layoutX="785.0" layoutY="29.0" onMouseClicked="#handleClickReview" prefHeight="24.0" prefWidth="164.0" text="Leave a review" textFill="WHITE">
                <font>
                   <Font name="SansSerif Regular" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children>
       </Pane>

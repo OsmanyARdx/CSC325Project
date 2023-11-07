@@ -76,6 +76,11 @@
                <String fx:value="signup-button" />
             </styleClass>
          </Button>
+         <Label fx:id="errorMessage" layoutX="232.0" layoutY="520.0" opacity="0.0" text="Please fill in all values!" textFill="RED">
+            <font>
+               <Font name="SansSerif Regular" size="20.0" />
+            </font>
+         </Label>
       </children>
    </Pane>
    <Label layoutX="360.0" layoutY="38.0" text="Leave a review!">
