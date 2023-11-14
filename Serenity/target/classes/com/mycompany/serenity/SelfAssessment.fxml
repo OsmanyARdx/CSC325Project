@@ -12,12 +12,12 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.SelfAssessment">
-   <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleBackToHome" pickOnBounds="true" preserveRatio="true">
-      <Image url="@images/logo.png" />
+    <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleBackToHome" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/logo.png" />
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor>
-   </ImageView>
+    </ImageView>
    <Pane fx:id="surveyPane" layoutX="227.0" layoutY="162.0" prefHeight="550.0" prefWidth="700.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
       <children>
          <Label layoutX="14.0" layoutY="14.0" text="How would you describe your emotional state?">
@@ -25,28 +25,28 @@
                <Font name="SansSerif Regular" size="18.0" />
             </font>
          </Label>
-
-
-         <Label layoutX="14.0" layoutY="86.0" text="How well did you sleep last night?">
+   
+   
+           <Label layoutX="14.0" layoutY="86.0" text="How well did you sleep last night?">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-
-         <Label layoutX="14.0" layoutY="166.0" prefHeight="24.0" prefWidth="405.0" text="What best describes your energy level today?">
+   
+           <Label layoutX="14.0" layoutY="166.0" prefHeight="24.0" prefWidth="405.0" text="What best describes your energy level today?">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-
-         <Label layoutX="14.0" layoutY="249.0" text="Did you practice any relaxation or self-care techniques today?">
+   
+           <Label layoutX="14.0" layoutY="249.0" text="Did you practice any relaxation or self-care techniques today?">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-
-
-         <Label layoutX="14.0" layoutY="330.0" text="What is your outlook for the rest of the day?">
+   
+   
+           <Label layoutX="14.0" layoutY="330.0" text="What is your outlook for the rest of the day?">
             <font>
                <Font size="18.0" />
             </font>

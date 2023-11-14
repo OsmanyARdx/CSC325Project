@@ -48,6 +48,15 @@ public class UserHome {
     @FXML
     public void handleClickMeditate(ActionEvent event){
         switchPage(event, "Meditation.fxml");
+}
+
+    /**
+     * Route user to charts page
+     * @param event on click
+     */
+    @FXML
+    public void handleClickCharts(ActionEvent event){
+        switchPage(event, "Charts.fxml");
     }
 
     /**
