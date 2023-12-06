@@ -8,11 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.Objects;
 
-public class Meditate {
-
+public class WellnessTips {
     @FXML
     public void handleClickEmergencyResources(ActionEvent event) {
         switchPage(event, "EmergencyResources.fxml");
@@ -24,16 +24,23 @@ public class Meditate {
     }
 
     @FXML
-    public void handleClickMeditate(ActionEvent event) {switchPage(event, "Meditate.fxml");}
+    public void handleClickMeditate(ActionEvent event) {
+        switchPage(event, "Meditate.fxml");
+    }
 
     @FXML
-    public void handleClickWellnessTips(ActionEvent event) {switchPage(event, "WellnessTips.fxml");}
+    public void handleClickWellnessTips(ActionEvent event) {
+        switchPage(event, "WellnessTips.fxml");
+    }
 
     @FXML
-    public void handleClickDailySurvey(ActionEvent event) {switchPage(event, "SelfAssessment.fxml");}
+    public void handleClickDailySurvey(ActionEvent event) {
+        switchPage(event, "SelfAssessment.fxml");
+    }
 
     /**
      * Brings user back to userHome
+     *
      * @param event mouse click
      */
     @FXML
@@ -44,8 +51,9 @@ public class Meditate {
 
     /**
      * Helper function for routing between any page that isn't userHome
+     *
      * @param event on click
-     * @param page page to route to
+     * @param page  page to route to
      */
     public void switchPage(ActionEvent event, String page) {
         try {
@@ -61,8 +69,9 @@ public class Meditate {
 
     /**
      * Helper function for returning to userHome page
+     *
      * @param userName current user's name
-     * @param event mouse click
+     * @param event    mouse click
      */
     public void switchToHome(String userName, MouseEvent event) {
         try {
@@ -78,6 +87,4 @@ public class Meditate {
             System.out.println(e);
         }
     }
-
-
 }

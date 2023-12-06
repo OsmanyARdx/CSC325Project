@@ -42,11 +42,22 @@
             <Cursor fx:constant="HAND" />
         </cursor>
     </Button>
-    <Label fx:id="dailySurvey" layoutX="782.0" layoutY="49.0" prefHeight="24.0" prefWidth="129.0" text="Daily survey">
-        <font>
-            <Font name="SansSerif Bold" size="20.0" />
-        </font>
-    </Label>
+   <Button layoutX="777.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleClickDailySurvey" styleClass="button-as-text" stylesheets="@styles.css" text="Daily Survey">
+      <font>
+         <Font name="SansSerif Bold" size="20.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+   <Button layoutX="935.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleClickWellnessTips" styleClass="button-as-text" stylesheets="@styles.css" text="Wellness">
+      <font>
+         <Font name="SansSerif Bold" size="20.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
     <ScrollPane fitToHeight="true" layoutX="16.0" layoutY="151.0" prefHeight="500.0" prefWidth="1080.0">
         <content>
             <AnchorPane prefHeight="1488.0" prefWidth="1061.0">

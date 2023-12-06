@@ -1,6 +1,5 @@
 package com.mycompany.serenity;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +29,11 @@ public class UserHome {
     @FXML
     public void handleClickSafePlace(ActionEvent event){
         switchPage(event, "safeplace.fxml");
+    }
+
+    @FXML
+    public void handleClickWellnessTips(ActionEvent event){
+        switchPage(event, "WellnessTips.fxml");
     }
 
     /**

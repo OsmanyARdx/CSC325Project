@@ -76,6 +76,11 @@ public class Safeplace {
     }
 
     @FXML
+    public void handleClickWellnessTips(ActionEvent event) {
+        switchPage(event, "WellnessTips.fxml");
+    }
+
+    @FXML
     public void handleBackToHome(MouseEvent event) {
         UserSession userSession = UserSession.getInstance();
         switchToHome(userSession.getName().join(), event);

@@ -120,6 +120,14 @@
          <Font name="SansSerif Bold" size="20.0" />
       </font>
    </Label>
+   <Button layoutX="937.0" layoutY="42.0" mnemonicParsing="false" onAction="#handleClickWellnessTips" styleClass="button-as-text" stylesheets="@styles.css" text="Wellness">
+      <font>
+         <Font name="SansSerif Bold" size="20.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
    <Label fx:id="surveyComplete" layoutX="227.0" layoutY="113.0" opacity="0.0" prefHeight="33.0" prefWidth="700.0" text="Thank you for submitting! Please come back tomorrow.">
       <font>
          <Font name="SansSerif Bold" size="24.0" />

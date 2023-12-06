@@ -140,6 +140,11 @@ public class SelfAssessment {
         switchPage(event, "safeplace.fxml");
     }
 
+    @FXML
+    public void handleClickWellnessTips(ActionEvent event) {
+        switchPage(event, "WellnessTips.fxml");
+    }
+
     /**
      * Brings user back to userHome
      * @param event mouse click

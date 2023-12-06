@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="741.0" prefWidth="1096.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.Meditate">
+    <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleBackToHome" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/logo.png" />
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </ImageView>
+   <Button layoutX="176.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickMeditate" styleClass="button-as-text" stylesheets="@styles.css" text="Meditate">
+      <font>
+         <Font name="SansSerif Bold" size="20.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+    <Button layoutX="906.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleClickWellnessTips" styleClass="button-as-text" stylesheets="@styles.css" text="Wellness" textFill="WHITE" underline="true">>
+        <font>
+            <Font name="SansSerif Bold" size="20.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Button layoutX="307.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickEmergencyResources" styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources">
+        <font>
+            <Font name="SansSerif Bold" size="20.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+    <Button layoutX="577.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickSafePlace" prefHeight="24.0" prefWidth="129.0" styleClass="button-as-text" stylesheets="@styles.css" text="Safe Place">
+        <font>
+            <Font name="SansSerif Bold" size="20.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+    </Button>
+   <Button layoutX="739.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleClickDailySurvey" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Daily Survey">
+      <font>
+         <Font name="SansSerif Bold" size="20.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+    <ScrollPane fitToHeight="true" layoutX="16.0" layoutY="151.0" prefHeight="500.0" prefWidth="1080.0">
+        <content>
+            <AnchorPane prefHeight="1488.0" prefWidth="1061.0">
+                <children>
+                    <Label layoutX="14.0" layoutY="44.0" prefHeight="90.0" prefWidth="491.0" text="Prioritize Sleep: Aim for 7-9 hours of quality sleep each night, establish a bedtime routine, and create a comfortable sleep environment." wrapText="true">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="14.0" layoutY="180.0" prefHeight="90.0" prefWidth="509.0" text="Stay Hydrated: Drink plenty of water throughout the day to support overall health and maintain proper bodily functions." wrapText="true">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="14.0" layoutY="300.0" prefHeight="102.0" prefWidth="509.0" text="Balanced Nutrition: Consume a well-rounded diet with fruits, vegetables, whole grains, lean proteins, and healthy fats. Limit processed foods, sugar, and excessive caffeine intake." wrapText="true">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="14.0" layoutY="420.0" prefHeight="90.0" prefWidth="509.0" text="Regular Exercise: Incorporate at least 150 minutes of moderate-intensity or 75 minutes of vigorous-intensity exercise per week into your routine." wrapText="true">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="14.0" layoutY="540.0" prefHeight="90.0" prefWidth="509.0" text="Mindful Eating: Pay attention to what and how you eat, savor each bite, eat slowly, and listen to your body's hunger and fullness cues." wrapText="true">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="14.0" layoutY="660.0" prefHeight="90.0" prefWidth="509.0" text="Manage Stress: Practice stress-management techniques such as deep breathing, meditation, yoga, or engaging in hobbies. Take breaks and set realistic goals." wrapText="true">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+               <Label layoutX="14.0" layoutY="780.0" prefHeight="90.0" prefWidth="509.0" text="Social Connection: Cultivate meaningful relationships to contribute to emotional well-being and provide a support system during challenging times." wrapText="true">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Label>
+               <Label layoutX="14.0" layoutY="900.0" prefHeight="90.0" prefWidth="509.0" text="Digital Detox: Take breaks from screens, designate specific times to disconnect, and engage in offline activities to reduce eye strain and mental fatigue." wrapText="true">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Label>
+               <Label layoutX="14.0" layoutY="1020.0" prefHeight="90.0" prefWidth="509.0" text="Practice Gratitude: Express gratitude regularly for positive aspects of life, shift focus towards the positive, and consider keeping a gratitude journal." wrapText="true">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Label>
+               <Label layoutX="14.0" layoutY="1140.0" prefHeight="90.0" prefWidth="509.0" text="Routine Health Check-ups: Schedule regular check-ups and screenings for proactive healthcare to identify potential issues early and promote preventive measures." wrapText="true">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Label>
+                </children>
+            </AnchorPane>
+        </content>
+    </ScrollPane>
+</AnchorPane>
