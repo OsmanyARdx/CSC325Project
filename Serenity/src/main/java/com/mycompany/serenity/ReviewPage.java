@@ -33,6 +33,9 @@ public class ReviewPage {
         reviewBOX2.getItems().addAll("Very likely", "Likely", "Neutral", "Unlikely", "Very unlikely");
     }
 
+    /**
+     * Sends review to database
+     */
     @FXML
     public void handleSendReview(){
         String reviewQ1 = reviewBOX1.getValue();
@@ -62,11 +65,22 @@ public class ReviewPage {
             users.updateOne(filter, update);
         }
     }
+
+    /**
+     * Routes user back to home page
+     * @param event
+     */
     @FXML
     public void handleBackToHome(MouseEvent event) {
         UserSession userSession = UserSession.getInstance();
         switchToHome(userSession.getName().join(), event);
     }
+
+    /**
+     * Helper method for routing back to home page
+     * @param userName
+     * @param event
+     */
     public void switchToHome(String userName, MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("userHome.fxml"));

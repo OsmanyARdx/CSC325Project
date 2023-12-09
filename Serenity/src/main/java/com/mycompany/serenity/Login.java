@@ -39,7 +39,10 @@ public class Login {
     }
 
 
-
+    /**
+     * Checks to make sure the login is valid, then routes user to home page
+     * @param event
+     */
     @FXML
     public void handleLogin(ActionEvent event) {
         UserSession userSession = UserSession.getInstance();
@@ -79,11 +82,19 @@ public class Login {
                 });
     }
 
+    /**
+     * Error message displaying to user which fields are incorrect
+     * @param message
+     */
     private void setErrorMessage(String message) {
         requiredMessage.setText(message);
         requiredMessage.setOpacity(1);
     }
 
+    /**
+     * Routes user to signup page
+     * @param event
+     */
     @FXML
     public void handleClickToSignup(ActionEvent event) {
         try {
@@ -97,6 +108,12 @@ public class Login {
         }
     }
 
+    /**
+     * Helper method for routing user to home page
+     * Creates a singleton instance using UserSession class
+     * @param userName
+     * @param event
+     */
     public void switchToHome(String userName, ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("userHome.fxml"));
@@ -112,10 +129,20 @@ public class Login {
         }
     }
 
+    /**
+     * Helper method makes sure user filled out all fields
+     * @return
+     */
     public Boolean allFieldsFull() {
         return !email.getText().isEmpty() && !password.getText().isEmpty();
     }
 
+    /**
+     * Regex expression to make sure the user is following correct email format
+     * "example@example.com"
+     * @param email
+     * @return
+     */
     public Boolean isValidEmailFormat(String email) {
         String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
                 "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -125,6 +152,11 @@ public class Login {
         return matcher.matches();
     }
 
+    /**
+     * Helper method makes sure entered email exists in DB
+     * @param email
+     * @return
+     */
     public CompletableFuture<Boolean> doesEmailExist(String email) {
         return CompletableFuture.supplyAsync(() -> {
             Bson filter = Filters.eq("_id", email);
@@ -133,6 +165,12 @@ public class Login {
         });
     }
 
+    /**
+     * Helper method for making sure user password is correct
+     * @param email
+     * @param password
+     * @return
+     */
     public CompletableFuture<Boolean> passwordMatch(String email, String password) {
         return CompletableFuture.supplyAsync(() -> {
             Bson filter = Filters.eq("_id", email);

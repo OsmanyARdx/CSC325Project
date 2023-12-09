@@ -22,7 +22,7 @@
             <Image url="@images/logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="450.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleClickEmergencyResources" styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources">
+      <Button layoutX="490.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleClickEmergencyResources" styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources">
          <font>
             <Font name="SansSerif Bold" size="20.0" />
          </font>
@@ -45,7 +45,15 @@
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="694.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleClickSafePlace" styleClass="button-as-text" stylesheets="@styles.css" text="Safe Place">
+      <Button layoutX="372.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleClickMeditate" styleClass="button-as-text" stylesheets="@styles.css" text="Meditate">
+         <font>
+            <Font name="SansSerif Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="734.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleClickSafePlace" styleClass="button-as-text" stylesheets="@styles.css" text="Safe Place">
          <font>
             <Font name="SansSerif Bold" size="20.0" />
          </font>
@@ -85,12 +93,23 @@
                   <Font name="SansSerif Regular" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="785.0" layoutY="29.0" prefHeight="24.0" prefWidth="164.0" text="Leave a review" textFill="WHITE">
+            <Label layoutX="785.0" layoutY="29.0" onMouseClicked="#handleClickReview" prefHeight="24.0" prefWidth="164.0" text="Leave a review" textFill="WHITE">
                <font>
                   <Font name="SansSerif Regular" size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children>
       </Pane>
+      <Button layoutX="262.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleClickCharts" styleClass="button-as-text" stylesheets="@styles.css" text="Charts">
+         <font>
+            <Font name="SansSerif Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

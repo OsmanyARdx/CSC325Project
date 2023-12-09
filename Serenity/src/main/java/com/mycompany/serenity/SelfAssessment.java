@@ -124,17 +124,28 @@ public class SelfAssessment {
         }
     }
 
+    /**
+     * Route user to emergency resources page
+     * @param event
+     */
     @FXML
     public void handleClickEmergencyResources(ActionEvent event) {
         switchPage(event, "EmergencyResources.fxml");
     }
 
+    /**
+     * Route user to emergency resources page
+     * @param event
+     */
     @FXML
     public void handleClickMeditate(ActionEvent event) {
         switchPage(event, "Meditation.fxml");
     }
 
-
+    /**
+     * Route user to emergency resources page
+     * @param event
+     */
     @FXML
     public void handleClickSafePlace(ActionEvent event) {
         switchPage(event, "safeplace.fxml");

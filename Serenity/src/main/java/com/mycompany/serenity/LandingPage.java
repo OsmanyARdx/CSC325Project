@@ -12,21 +12,38 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class LandingPage {
-
+    /**
+     * Route user to login page
+     * @param event
+     */
     @FXML
     public void handleToLogin(ActionEvent event) {
         switchPage(event, "login.fxml");
     }
+
+    /**
+     * Route user to signup page
+     * @param event
+     */
     @FXML
     public void handleToSignup(ActionEvent event) {
         switchPage(event,"signup.fxml");
     }
 
+    /**
+     * Route user to emergency resources page
+     * @param event
+     */
     @FXML
     public void handleClickEmergencyResources(ActionEvent event) {
         switchPage(event, "EmergencyResources.fxml");
     }
 
+    /**
+     * Helper method for page routing
+     * @param event on click event
+     * @param page specific page to route to
+     */
     public void switchPage(ActionEvent event, String page) {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page)));

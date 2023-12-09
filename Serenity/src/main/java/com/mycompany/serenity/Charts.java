@@ -48,6 +48,10 @@ public class Charts {
 
     }
 
+    /**
+     * Updates the pie chart with user survey data
+     * @param selectedCategory one of 5 categories to display data
+     */
     public void updatePieChart(String selectedCategory){
         pieChartData.clear();
 
@@ -69,6 +73,12 @@ public class Charts {
         }
     }
 
+    /**
+     * Iterates through pieChartData and populates
+     * corresponding pie chart with the data
+     * @param category
+     * @param value
+     */
     public void addToPieChart(String category, String value){
         boolean found = false;
         for (PieChart.Data data : pieChartData) {
