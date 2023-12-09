@@ -23,15 +23,15 @@ import java.util.Objects;
 public class Safeplace {
 
     @FXML
-    private TextArea Q1TXTArea, Q2TXTArea, Q3TXTArea, chatHistory;
+    private TextArea Q1TXTArea, Q2TXTArea, Q3TXTArea;
+//
+//    @FXML
+//    private TextField userMessageInput;
 
-    @FXML
-    private TextField userMessageInput;
-
-    @FXML
-    public void initialize(){
-        chatHistory.appendText("Bot: Hello! I'm your personal mental health assistant. Use the text bar below to discuss any issues with me.\n\n");
-    }
+//    @FXML
+//    public void initialize(){
+//        chatHistory.appendText("Bot: Hello! I'm your personal mental health assistant. Use the text bar below to discuss any issues with me.\n\n");
+//    }
 
     @FXML
     public void handleSendToFiles(ActionEvent e) {
@@ -113,87 +113,87 @@ public class Safeplace {
         }
     }
 
-    @FXML
-    public void handleSendMessage() {
-        String userMessage = userMessageInput.getText();
-
-        if (!userMessage.isEmpty()) {
-            // Create and start a new thread to handle the GPT request
-            Thread gptThread = new Thread(() -> {
-                String botResponse = handleGPTRequest(userMessage);
-
-                // Update the JavaFX UI on the JavaFX Application Thread
-                Platform.runLater(() -> {
-                    displayMessage("You: " + userMessage);
-                    displayMessage("Bot: " + botResponse);
-                    userMessageInput.clear();
-                });
-            });
-
-            gptThread.start();
-        }
-    }
-
-
-    private void displayMessage(String message) {
-        chatHistory.appendText(message + "\n\n");
-    }
-
-    public String handleGPTRequest(String message){
-        String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = System.getenv("apiKey");
-        String model = "gpt-3.5-turbo";
-
-        try{
-            URL obj = new URL(url);
-            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-            con.setRequestMethod("POST");
-            con.setRequestProperty("Authorization", "Bearer " + apiKey);
-            con.setRequestProperty("Content-Type", "application/json");
-
-            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}";
-            con.setDoOutput(true);
-            OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
-            writer.write(body);
-            writer.flush();
-            writer.close();
-            //Get the response
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-            while((inputLine = in.readLine()) != null){
-                response.append(inputLine);
-            }
-            in.close();
-
-            return extractContentFromJson(String.valueOf(response));
-
-        } catch(IOException e){
-            System.out.println(e);
-        }
-        return null;
-    }
-
-    public String extractContentFromJson(String jsonString) {
-        try {
-            JSONObject jsonObject = new JSONObject(jsonString);
-
-            JSONArray choicesArray = jsonObject.getJSONArray("choices");
-
-            if (!choicesArray.isEmpty()) {
-                JSONObject firstChoice = choicesArray.getJSONObject(0);
-                JSONObject messageObject = firstChoice.getJSONObject("message");
-
-                if (messageObject.has("content")) {
-                    return messageObject.getString("content");
-                }
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        return null; // Return null if extraction fails
-    }
+//    @FXML
+//    public void handleSendMessage() {
+//        String userMessage = userMessageInput.getText();
+//
+//        if (!userMessage.isEmpty()) {
+//            // Create and start a new thread to handle the GPT request
+//            Thread gptThread = new Thread(() -> {
+//                String botResponse = handleGPTRequest(userMessage);
+//
+//                // Update the JavaFX UI on the JavaFX Application Thread
+//                Platform.runLater(() -> {
+//                    displayMessage("You: " + userMessage);
+//                    displayMessage("Bot: " + botResponse);
+//                    userMessageInput.clear();
+//                });
+//            });
+//
+//            gptThread.start();
+//        }
+//    }
+//
+//
+//    private void displayMessage(String message) {
+//        chatHistory.appendText(message + "\n\n");
+//    }
+//
+//    public String handleGPTRequest(String message){
+//        String url = "https://api.openai.com/v1/chat/completions";
+//        String apiKey = System.getenv("apiKey");
+//        String model = "gpt-3.5-turbo";
+//
+//        try{
+//            URL obj = new URL(url);
+//            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+//            con.setRequestMethod("POST");
+//            con.setRequestProperty("Authorization", "Bearer " + apiKey);
+//            con.setRequestProperty("Content-Type", "application/json");
+//
+//            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}";
+//            con.setDoOutput(true);
+//            OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
+//            writer.write(body);
+//            writer.flush();
+//            writer.close();
+//            //Get the response
+//            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+//            String inputLine;
+//            StringBuffer response = new StringBuffer();
+//            while((inputLine = in.readLine()) != null){
+//                response.append(inputLine);
+//            }
+//            in.close();
+//
+//            return extractContentFromJson(String.valueOf(response));
+//
+//        } catch(IOException e){
+//            System.out.println(e);
+//        }
+//        return null;
+//    }
+//
+//    public String extractContentFromJson(String jsonString) {
+//        try {
+//            JSONObject jsonObject = new JSONObject(jsonString);
+//
+//            JSONArray choicesArray = jsonObject.getJSONArray("choices");
+//
+//            if (!choicesArray.isEmpty()) {
+//                JSONObject firstChoice = choicesArray.getJSONObject(0);
+//                JSONObject messageObject = firstChoice.getJSONObject("message");
+//
+//                if (messageObject.has("content")) {
+//                    return messageObject.getString("content");
+//                }
+//            }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//
+//        return null; // Return null if extraction fails
+//    }
 
 
 
