@@ -68,6 +68,11 @@ public class UserHome {
         switchPage(event, "ReviewPage.fxml");
     }
 
+    @FXML
+    public void handleClickCharts(ActionEvent event){
+        switchPage(event, "Charts.fxml");
+    }
+
     /**
      * Sign user out and redirect to landing page
      * @param event on click
