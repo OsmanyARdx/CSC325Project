@@ -13,17 +13,6 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class EmergencyResources {
-    public void switchPage(ActionEvent event, String page) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page)));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-    }
 
     @FXML
     public void handleClickSafePlace(ActionEvent event) {
@@ -47,6 +36,7 @@ public class EmergencyResources {
 
     /**
      * Brings user back to userHome
+     *
      * @param event mouse click
      */
     @FXML
@@ -55,9 +45,33 @@ public class EmergencyResources {
         switchToHome(userSession.getName().join(), event);
     }
 
+    /**
+     * Helper function for routing between any page that isn't userHome
+     *
+     * @param event on click
+     * @param page  page to route to
+     */
+    public void switchPage(ActionEvent event, String page) {
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(page)));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    /**
+     * Helper function for returning to userHome page
+     *
+     * @param userName current user's name
+     * @param event    mouse click
+     */
     public void switchToHome(String userName, MouseEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ladingPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("userHome.fxml"));
             Parent root = loader.load();
             UserHome userHome = loader.getController();
             userHome.initialize(userName);

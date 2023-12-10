@@ -21,6 +21,7 @@ public class App extends Application {
 
         //creating the starting page
         scene = new Scene(loadFXML("LandingPage"), 1080, 720);
+        scene = new Scene(loadFXML("LandingPage"), 1080, 720);
         stage.setScene(scene);
         stage.setTitle("Serenity");
         String css = getClass().getResource("styles.css").toExternalForm();
