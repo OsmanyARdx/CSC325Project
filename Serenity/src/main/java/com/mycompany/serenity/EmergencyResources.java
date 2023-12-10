@@ -24,7 +24,27 @@ public class EmergencyResources {
             System.out.println(e);
         }
     }
-    
+
+    @FXML
+    public void handleClickSafePlace(ActionEvent event) {
+        switchPage(event, "safeplace.fxml");
+    }
+
+    @FXML
+    public void handleClickMeditate(ActionEvent event) {
+        switchPage(event, "Meditate.fxml");
+    }
+
+    @FXML
+    public void handleClickWellnessTips(ActionEvent event) {
+        switchPage(event, "WellnessTips.fxml");
+    }
+
+    @FXML
+    public void handleClickDailySurvey(ActionEvent event) {
+        switchPage(event, "SelfAssessment.fxml");
+    }
+
     @FXML
     public void handleBackToHome(MouseEvent event) {
         UserSession userSession = UserSession.getInstance();

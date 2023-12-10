@@ -11,26 +11,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class LandingPage {
-
+public class AboutUs {
     @FXML
-    public void handleToLogin(ActionEvent event) {
-        switchPage(event, "login.fxml");
-    }
-
-    @FXML
-    public void handleToSignup(ActionEvent event) {
-        switchPage(event, "signup.fxml");
-    }
-
-    @FXML
-    public void handleToAboutUs(ActionEvent event) {
-        switchPage(event, "AboutUs.fxml");
-    }
-
-    @FXML
-    public void handleClickLandingEmergencyResources(ActionEvent event) {
-        switchPage(event, "LandingEmergencyResources.fxml");
+    public void handleToLanding(ActionEvent event) {
+        switchPage(event, "landingPage.fxml");
     }
 
     public void switchPage(ActionEvent event, String page) {
@@ -44,6 +28,4 @@ public class LandingPage {
             System.out.println(e);
         }
     }
-
-
 }
