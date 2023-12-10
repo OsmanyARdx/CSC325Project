@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.AboutUs">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.AboutUs">
     <children>
-          <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="8.0" layoutY="8.0" onMouseClicked="#handleBackToHome" preserveRatio="true">
-              <image>
-                  <Image url="@images/logo.png" />
-              </image>
-          </ImageView>
-        <Pane layoutX="100.0" layoutY="166.0" prefHeight="460.0" prefWidth="879.0" styleClass="soft-edge-vbox" stylesheets="@styles.css" />
+        <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="8.0" layoutY="8.0" onMouseClicked="#handleBackToHome" preserveRatio="true">
+            <image>
+                <Image url="@images/logo.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="137.0" layoutY="8.0" prefHeight="142.0" prefWidth="806.0" text="Your Mental Health, Our Priority" textFill="WHITE">
+            <font>
+                <Font size="50.0" />
+            </font>
+        </Label>
+        <Label layoutX="38.0" layoutY="140.0" prefHeight="476.0" prefWidth="937.0" text="Welcome to Serenity, a compassionate haven on the digital landscape dedicated to fostering mental well-being and emotional resilience. At Serenity, we understand the profound impact that mental health has on every aspect of one's life, and we are committed to providing a safe, supportive space for individuals seeking solace and understanding. Our mission is to empower and uplift, offering a wealth of resources, expert insights, and a nurturing community to guide you on your journey toward mental wellness. Rooted in empathy, Serenity strives to break down the stigma surrounding mental health, promoting open conversations and fostering a sense of connection. Our team of dedicated professionals and advocates collaborates to curate a diverse range of articles, tools, and activities designed to inspire healing and self-discovery." wrapText="true">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
