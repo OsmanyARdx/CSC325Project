@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -8,9 +14,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" onDragDetected="#handleToLanding" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.LandingEmergencyResource">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.LandingEmergencyResource">
     <children>
-        <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="14.0" layoutY="14.0" onDragDetected="#handleToLanding" onMouseClicked="#handleToLanding" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#handleBackToHome" pickOnBounds="true" preserveRatio="true">
            <image>
                <Image url="@images/logo.png" />
            </image>

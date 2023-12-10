@@ -45,6 +45,10 @@ public class EmergencyResources {
         switchPage(event, "SelfAssessment.fxml");
     }
 
+    /**
+     * Brings user back to userHome
+     * @param event mouse click
+     */
     @FXML
     public void handleBackToHome(MouseEvent event) {
         UserSession userSession = UserSession.getInstance();
@@ -53,7 +57,7 @@ public class EmergencyResources {
 
     public void switchToHome(String userName, MouseEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("userHome.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ladingPage.fxml"));
             Parent root = loader.load();
             UserHome userHome = loader.getController();
             userHome.initialize(userName);
