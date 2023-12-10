@@ -13,9 +13,7 @@ import java.util.Objects;
 
 public class AboutUs {
     @FXML
-    public void handleToLanding(ActionEvent event) {
-        switchPage(event, "landingPage.fxml");
-    }
+    public void handleToLanding(ActionEvent event) {switchPage(event, "landingPage.fxml");}
 
     public void switchPage(ActionEvent event, String page) {
         try {
