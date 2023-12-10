@@ -70,6 +70,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button layoutX="712.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleClickWellnessTips" styleClass="button-as-text" stylesheets="@styles.css" text="Wellness">
+         <font>
+            <Font name="SansSerif Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
       <Pane layoutY="630.0" prefHeight="90.0" prefWidth="1080.0" styleClass="footer-pane" stylesheets="@styles.css">
          <children>
             <Label layoutX="147.0" layoutY="29.0" text="Serenity" textFill="WHITE">
@@ -93,20 +101,8 @@
                   <Font name="SansSerif Regular" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="785.0" layoutY="29.0" prefHeight="24.0" prefWidth="164.0" text="Leave a review" textFill="WHITE">
-               <font>
-                  <Font name="SansSerif Regular" size="20.0" />
-               </font>
-            </Label>
+            <Button layoutX="824.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleClickReviewPage" text="Leave A Review!" />
          </children>
       </Pane>
-      <Button layoutX="712.0" layoutY="70.0" mnemonicParsing="false" onAction="#handleClickWellnessTips" styleClass="button-as-text" stylesheets="@styles.css" text="Wellness">
-         <font>
-            <Font name="SansSerif Bold" size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
    </children>
 </AnchorPane>

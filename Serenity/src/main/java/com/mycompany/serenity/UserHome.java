@@ -63,6 +63,11 @@ public class UserHome {
         switchPage(event, "SelfAssessment.fxml");
     }
 
+    @FXML
+    public void handleClickReviewPage(ActionEvent event) {
+        switchPage(event, "ReviewPage.fxml");
+    }
+
     /**
      * Sign user out and redirect to landing page
      * @param event on click
@@ -89,5 +94,6 @@ public class UserHome {
             System.out.println(e);
         }
     }
+
 
 }

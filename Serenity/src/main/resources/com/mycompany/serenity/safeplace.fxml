@@ -17,76 +17,92 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.Safeplace">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
+            prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.Safeplace">
 
     <children>
-        <ImageView fitHeight="125.0" fitWidth="112.0" layoutX="34.0" layoutY="14.0" onMouseClicked="#handleBackToHome" pickOnBounds="true" preserveRatio="true" translateX="-20.0">
+        <ImageView fitHeight="125.0" fitWidth="112.0" layoutX="34.0" layoutY="14.0" onMouseClicked="#handleBackToHome"
+                   pickOnBounds="true" preserveRatio="true" translateX="-20.0">
             <image>
-                <Image url="@images/logo.png" />
+                <Image url="@images/logo.png"/>
             </image>
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
         </ImageView>
-        <Label fx:id="dailySurvey" layoutX="589.0" layoutY="62.0" prefHeight="24.0" prefWidth="110.0" text="Safe place" textFill="WHITE" underline="true">
+        <Label fx:id="dailySurvey" layoutX="589.0" layoutY="62.0" prefHeight="24.0" prefWidth="110.0" text="Safe place"
+               textFill="WHITE" underline="true">
             <font>
-                <Font name="SansSerif Bold" size="20.0" />
+                <Font name="SansSerif Bold" size="20.0"/>
             </font>
         </Label>
-        <Pane layoutX="45.0" layoutY="181.0" prefHeight="461.0" prefWidth="979.0" styleClass="soft-edge-vbox" stylesheets="@styles.css">
+        <Pane layoutX="45.0" layoutY="181.0" prefHeight="461.0" prefWidth="979.0" styleClass="soft-edge-vbox"
+              stylesheets="@styles.css">
             <children>
                 <Label layoutX="14.0" layoutY="143.0" text="What is on your mind?">
                     <font>
-                        <Font name="SansSerif Regular" size="20.0" />
+                        <Font name="SansSerif Regular" size="20.0"/>
                     </font>
                 </Label>
-                <TextArea fx:id="Q3TXTArea" layoutX="14.0" layoutY="311.0" prefHeight="75.0" prefWidth="933.0" />
+                <TextArea fx:id="Q3TXTArea" layoutX="14.0" layoutY="311.0" prefHeight="75.0" prefWidth="933.0"/>
                 <Label layoutX="15.0" layoutY="263.0" text="What can you do to fix your situation?">
                     <font>
-                        <Font name="SansSerif Regular" size="20.0" />
+                        <Font name="SansSerif Regular" size="20.0"/>
                     </font>
                 </Label>
-                <TextArea fx:id="Q2TXTArea" layoutX="14.0" layoutY="176.0" prefHeight="75.0" prefWidth="933.0" />
-                <Button layoutX="16.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleSendToFiles" styleClass="signup-button" stylesheets="@styles.css" text="Send to text file" />
+                <TextArea fx:id="Q2TXTArea" layoutX="14.0" layoutY="176.0" prefHeight="75.0" prefWidth="933.0"/>
+                <Button layoutX="16.0" layoutY="404.0" mnemonicParsing="false" onAction="#handleSendToFiles"
+                        styleClass="signup-button" stylesheets="@styles.css" text="Send to text file">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
                 <Label layoutX="14.0" layoutY="14.0" text="How are you feeling?">
                     <font>
-                        <Font size="20.0" />
+                        <Font size="20.0"/>
                     </font>
                 </Label>
-                <TextArea fx:id="Q1TXTArea" layoutX="14.0" layoutY="52.0" prefHeight="75.0" prefWidth="933.0" />
+                <TextArea fx:id="Q1TXTArea" layoutX="14.0" layoutY="52.0" prefHeight="75.0" prefWidth="933.0"/>
             </children>
         </Pane>
-        <Button layoutX="307.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickEmergencyResources" styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources">
+        <Button layoutX="307.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickEmergencyResources"
+                styleClass="button-as-text" stylesheets="@styles.css" text="Emergency Resources">
             <font>
-                <Font name="SansSerif Bold" size="20.0" />
+                <Font name="SansSerif Bold" size="20.0"/>
             </font>
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
         </Button>
-        <Button layoutX="176.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickMeditate" styleClass="button-as-text" stylesheets="@styles.css" text="Meditate">
+        <Button layoutX="176.0" layoutY="54.0" mnemonicParsing="false" onAction="#handleClickMeditate"
+                styleClass="button-as-text" stylesheets="@styles.css" text="Meditate">
             <font>
-                <Font name="SansSerif Bold" size="20.0" />
+                <Font name="SansSerif Bold" size="20.0"/>
             </font>
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
         </Button>
-        <Button layoutX="726.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleClickDailySurvey" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Daily survey">
+        <Button layoutX="726.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleClickDailySurvey"
+                prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css"
+                text="Daily survey">
             <font>
-                <Font name="SansSerif Bold" size="20.0" />
+                <Font name="SansSerif Bold" size="20.0"/>
             </font>
             <cursor>
-                <Cursor fx:constant="HAND" />
+                <Cursor fx:constant="HAND"/>
             </cursor>
         </Button>
-      <Button layoutX="906.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleClickWellnessTips" prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css" text="Wellness">
-         <font>
-            <Font name="SansSerif Bold" size="20.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+        <Button layoutX="906.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleClickWellnessTips"
+                prefHeight="39.0" prefWidth="151.0" styleClass="button-as-text" stylesheets="@styles.css"
+                text="Wellness">
+            <font>
+                <Font name="SansSerif Bold" size="20.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
     </children>
 </AnchorPane>
