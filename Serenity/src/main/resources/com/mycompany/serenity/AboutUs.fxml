@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="welcome-anchor" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.serenity.AboutUs">
     <children>
-          <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="8.0" layoutY="8.0" preserveRatio="true">
+          <ImageView fitHeight="132.0" fitWidth="162.0" layoutX="8.0" layoutY="8.0" onMouseClicked="#handleBackToHome" preserveRatio="true">
               <image>
                   <Image url="@images/logo.png" />
               </image>
